@@ -1,5 +1,5 @@
 import { Image } from "./action";
-import { Component } from "../typescript/component";
+import { Component, StandardPageComponents } from "../typescript/component";
 
 type AdditionalParam = {
   title: {};
@@ -105,6 +105,15 @@ export type Links = {
 export type PageProps = {
   locale: string;
   page_components: Component[];
+  uid: string;
+  url: string;
+  title: string;
+  seo: {};
+}
+
+export type StandardPageProps = {
+  locale: string;
+  page_components: StandardPageComponents[];
   uid: string;
   url: string;
   title: string;
