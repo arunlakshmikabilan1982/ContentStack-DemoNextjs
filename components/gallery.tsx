@@ -1,22 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { Image } from "../typescript/action";
-
-type AdditionalParam = {
-    title_h2: string;
-    description: string;
-  }
   
 type GalleryImages = {
     image: [Image];
-    $: AdditionalParam;
   }
   
 type GalleryProps = {
     title_h2: string;
     description: string;
     galleryimages: GalleryImages;
-    $: AdditionalParam;
   }
 
 export default function GalleryImagesSection({ section }: {section: GalleryProps}) {

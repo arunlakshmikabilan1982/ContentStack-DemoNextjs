@@ -62,10 +62,10 @@ style={{
         ) : (
           ''
         )}
-         {banner.call_to_action_2.title && banner.call_to_action_2.href ? (
-          <Link href={banner?.call_to_action_2.href}>
+         {banner.call_to_action_2?.title && banner.call_to_action_2?.href ? (
+          <Link href={banner?.call_to_action_2?.href}>
             <a className='btn-book animated fadeInUp scrollto' {...banner.call_to_action_2.$?.title}>
-              {banner?.call_to_action_2.title}
+              {banner?.call_to_action_2?.title}
             </a>
           </Link>
         ) : (
