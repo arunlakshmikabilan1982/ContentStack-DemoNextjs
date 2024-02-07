@@ -32,6 +32,14 @@ type BucketList = [
   }
 ]
 
+type GalleryImages=[
+  ImagesArray:{
+    url: string;
+    image:Image;
+    $: AdditionalParam;
+  }
+]
+
 type Card = [
   cardArray: {
     title_h3: string;
@@ -72,6 +80,11 @@ export type Component = {
   section_with_html_code?: AdditionalParamProps;
   our_team?: TeamProps;
   widget?: Widget;
+  gallery:GallerywithImages;
+}
+
+export type StandardPageComponents = {
+  gallery:GallerywithImages;
 }
 
 export type SectionWithBucket = {
@@ -81,6 +94,13 @@ export type SectionWithBucket = {
     description: string;
     $: AdditionalParam;
   }
+
+export type GallerywithImages = {
+  title_h2: string;
+  gallery_images: GalleryImages;
+  description: string;
+  $: AdditionalParam;
+}  
 
 export type Cards = {
     cards: Card;
@@ -133,4 +153,11 @@ export type RenderProps = {
   entryUid: string;
   locale: string;
   pageComponents:Component[];
+}
+
+export type RenderStandardPageProps = {
+  contentTypeUid: string;
+  entryUid: string;
+  locale: string;
+  pageComponents:StandardPageComponents[];
 }

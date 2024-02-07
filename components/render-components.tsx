@@ -9,6 +9,7 @@ import BlogSection from './blog-section';
 import SectionBucket from './section-bucket';
 import AboutSectionBucket from './about-section-bucket';
 import SectionWithHtmlCode from './section-with-html-code';
+import Gallery from './gallery';
 import { RenderProps } from "../typescript/component";
 
 export default function RenderComponents(props: RenderProps) {
@@ -36,6 +37,11 @@ export default function RenderComponents(props: RenderProps) {
         if (component.section) {
           return (
             <Section section={component.section} key={`component-${key}`} />
+          );
+        }
+        if(component.gallery){
+          return (
+            <Gallery section={component.gallery} key={`component-${key}`} />
           );
         }
         if (component.section_with_buckets) {

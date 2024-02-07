@@ -56,6 +56,17 @@ export const getPageRes = async (entryUrl) => {
   return response[0];
 };
 
+export const getStandardPageRes = async (entryUrl) => {
+  const response = await Stack.getEntryByUrl({
+    contentTypeUid: 'standardpage',
+    entryUrl,
+    referenceFieldPath: undefined,
+    jsonRtePath: undefined,
+  });
+  liveEdit && addEditableTags(response[0], 'standardpage', true);
+  return response[0];
+};
+
 export const getBlogListRes = async () => {
   const response = await Stack.getEntry({
     contentTypeUid: 'blog_post',

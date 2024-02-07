@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Footer from './footer';
 import DevTools from './devtools';
-import { HeaderProps, FooterProps, PageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
+import { HeaderProps, FooterProps, PageProps, StandardPageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
 
 export default function Layout({
   header,
   footer,
   page,
+  // standardpage,
   blogPost,
   blogList,
   entries,
@@ -17,6 +18,7 @@ export default function Layout({
   const [getLayout, setLayout] = useState({ header, footer });
   const jsonObj: any = { header, footer };
   page && (jsonObj.page = page);
+  // standardpage && (jsonObj.page = standardpage);
   blogPost && (jsonObj.blog_post = blogPost);
   blogList && (jsonObj.blog_post = blogList);
 
