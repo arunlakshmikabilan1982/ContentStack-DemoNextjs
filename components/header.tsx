@@ -1,46 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import parse from 'html-react-parser';
-import Tooltip from './tool-tip';
-import { onEntryChange } from '../contentstack-sdk';
-import { getHeaderRes } from '../helper';
-import Skeleton from 'react-loading-skeleton';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import parse from "html-react-parser";
+import Tooltip from "./tool-tip";
+import { onEntryChange } from "../contentstack-sdk";
+import { getHeaderRes } from "../helper";
+import Skeleton from "react-loading-skeleton";
 import { HeaderProps, Entry, NavLinks } from "../typescript/layout";
 
-export default function Header({ header, entries }: {header: HeaderProps, entries: Entry}) {
-
+export default function Header({
+  header,
+  entries,
+}: {
+  header: HeaderProps;
+  entries: Entry;
+}) {
   const router = useRouter();
+  // console.log(header);
   const [getHeader, setHeader] = useState(header);
 
   function buildNavigation(ent: Entry, hd: HeaderProps) {
-    let newHeader={...hd};
-    if (ent.length!== newHeader.navigation_menu.length) {
-          ent.forEach((entry) => {
-            const hFound = newHeader?.navigation_menu.find(
-              (navLink: NavLinks) => navLink.label === entry.title
-            );
-            if (!hFound) {
-              newHeader.navigation_menu?.push({
-                label: entry.title,
-                page_reference: [
-                  { title: entry.title, url: entry.url, $: entry.$ },
-                ],
-                $:{}
-              });
-            }
+    let newHeader = { ...hd };
+    if (ent.length !== newHeader.navigation_menu.length) {
+      ent.forEach((entry) => {
+        const hFound = newHeader?.navigation_menu.find(
+          (navLink: NavLinks) => navLink.label === entry.title
+        );
+        if (!hFound) {
+          newHeader.navigation_menu?.push({
+            label: entry.title,
+            page_reference: [
+              { title: entry.title, url: entry.url, $: entry.$ },
+            ],
+            $: {},
           });
+        }
+      });
     }
-    return newHeader
+    return newHeader;
   }
 
   async function fetchData() {
     try {
       if (header && entries) {
-      const headerRes = await getHeaderRes();
-      const newHeader = buildNavigation(entries,headerRes)
-      setHeader(newHeader);
-    }
+        const headerRes = await getHeaderRes();
+        const newHeader = buildNavigation(entries, headerRes);
+        setHeader(newHeader);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -52,31 +58,32 @@ export default function Header({ header, entries }: {header: HeaderProps, entrie
     }
   }, [header]);
   const headerData = getHeader ? getHeader : undefined;
-  
+  // console.log(headerData);
+
   return (
-    <header className='header'>
-      <div className='note-div'>
+    <header id="header" className="fixed-top d-flex align-items-center">
+      {/* <div className="note-div">
         {headerData?.notification_bar.show_announcement ? (
-          typeof headerData.notification_bar.announcement_text === 'string' && (
-            <div {...headerData.notification_bar.$?.announcement_text as {}}>
+          typeof headerData.notification_bar.announcement_text === "string" && (
+            <div {...(headerData.notification_bar.$?.announcement_text as {})}>
               {parse(headerData.notification_bar.announcement_text)}
             </div>
           )
         ) : (
           <Skeleton />
         )}
-      </div>
-      <div className='max-width header-div'>
-        <div className='wrapper-logo'>
+      </div> */}
+      <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+        <div className="wrapper-logo">
           {headerData ? (
-            <Link href='/'>
-              <a className='logo-tag' title='Contentstack'>
+            <Link href="/">
+              <a className="logo me-auto me-lg-0" title="Contentstack">
                 <img
-                  className='logo'
+                  className="logo"
                   src={headerData.logo.url}
                   alt={headerData.title}
                   title={headerData.title}
-                  {...headerData.logo.$?.url as {}}
+                  {...(headerData.logo.$?.url as {})}
                 />
               </a>
             </Link>
@@ -84,21 +91,21 @@ export default function Header({ header, entries }: {header: HeaderProps, entrie
             <Skeleton width={150} />
           )}
         </div>
-        <input className='menu-btn' type='checkbox' id='menu-btn' />
-        <label className='menu-icon' htmlFor='menu-btn'>
-          <span className='navicon' />
-        </label>
-        <nav className='menu'>
-          <ul className='nav-ul header-ul'>
+        {/* <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="navicon" />
+        </label> */}
+        <nav className="navbar order-last order-lg-0">
+          <ul className="nav-ul header-ul">
             {headerData ? (
               headerData.navigation_menu.map((list) => {
                 const className =
-                  router.asPath === list.page_reference[0].url ? 'active' : '';
+                  router.asPath === list.page_reference[0].url ? "active" : "";
                 return (
                   <li
                     key={list.label}
-                    className='nav-li'
-                    {...list.page_reference[0].$?.url as {}}
+                    className="nav-li"
+                    {...(list.page_reference[0].$?.url as {})}
                   >
                     <Link href={list.page_reference[0].url}>
                       <a className={className}>{list.label}</a>
@@ -112,13 +119,32 @@ export default function Header({ header, entries }: {header: HeaderProps, entrie
           </ul>
         </nav>
 
-        <div className='json-preview'>
-          <Tooltip content='JSON Preview' direction='top' dynamic={false} delay={200} status={0}>
-            <span data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
-              <img src='/json.svg' alt='JSON Preview icon' />
+        {headerData
+          ? headerData?.call_to_action.map((action) => {
+              return (
+                <a
+                  key={action.title}
+                  href={action?.href}
+                  className="book-a-table-btn scrollto d-none d-lg-flex"
+                >
+                  {action?.title}
+                </a>
+              );
+            })
+          : ""}
+        {/* <div className="json-preview">
+          <Tooltip
+            content="JSON Preview"
+            direction="top"
+            dynamic={false}
+            delay={200}
+            status={0}
+          >
+            <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <img src="/json.svg" alt="JSON Preview icon" />
             </span>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
     </header>
   );
