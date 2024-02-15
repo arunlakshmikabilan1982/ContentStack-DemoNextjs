@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Header from './header';
-import Footer from './footer';
-import DevTools from './devtools';
-import { HeaderProps, FooterProps, PageProps, StandardPageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
+import React, { useState, useEffect } from "react";
+import Header from "./header";
+import Footer from "./footer";
+import DevTools from "./devtools";
+import {
+  HeaderProps,
+  FooterProps,
+  PageProps,
+  StandardPageProps,
+  Posts,
+  ChilderenProps,
+  Entry,
+  NavLinks,
+  Links,
+} from "../typescript/layout";
 
 export default function Layout({
   header,
@@ -13,8 +23,15 @@ export default function Layout({
   blogList,
   entries,
   children,
-}: { header: HeaderProps, footer: FooterProps, page: PageProps, blogPost: Posts, blogList: Posts, entries: Entry, children: ChilderenProps }) {
-
+}: {
+  header: HeaderProps;
+  footer: FooterProps;
+  page: PageProps;
+  blogPost: Posts;
+  blogList: Posts;
+  entries: Entry;
+  children: ChilderenProps;
+}) {
   const [getLayout, setLayout] = useState({ header, footer });
   const jsonObj: any = { header, footer };
   page && (jsonObj.page = page);
@@ -63,14 +80,14 @@ export default function Layout({
 
   return (
     <>
-      {header ? <Header header={getLayout.header} entries={entries} /> : ''}
-      <main className='mainClass'>
+      {header ? <Header header={getLayout.header} entries={entries} /> : ""}
+      <main className="mainClass">
         <>
-        {children}
-        {Object.keys(jsonObj).length && <DevTools response={jsonObj} />}
+          {children}
+          {Object.keys(jsonObj).length && <DevTools response={jsonObj} />}
         </>
       </main>
-      {footer ? <Footer footer={getLayout.footer} entries={entries} /> : ''}
+      {footer ? <Footer footer={getLayout.footer} entries={entries} /> : ""}
     </>
   );
 }
