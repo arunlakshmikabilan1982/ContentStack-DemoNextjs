@@ -1,16 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Section from './section';
-import HeroBanner from './hero-banner';
-import BlogBanner from './blog-banner';
-import CardSection from './card-section';
-import TeamSection from './team-section';
-import BlogSection from './blog-section';
-import SectionBucket from './section-bucket';
-import AboutSectionBucket from './about-section-bucket';
-import SectionWithHtmlCode from './section-with-html-code';
-import Gallery from './gallery';
+import Section from "./section";
+import HeroBanner from "./hero-banner";
+import BlogBanner from "./blog-banner";
+import CardSection from "./card-section";
+import TeamSection from "./team-section";
+import BlogSection from "./blog-section";
+import SectionBucket from "./section-bucket";
+import AboutSectionBucket from "./about-section-bucket";
+import SectionWithHtmlCode from "./section-with-html-code";
+import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
+import ContactUsSection from "./contactus";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -39,11 +40,21 @@ export default function RenderComponents(props: RenderProps) {
             <Section section={component.section} key={`component-${key}`} />
           );
         }
-        if(component.gallery){
+        if (component.gallery) {
           return (
             <Gallery section={component.gallery} key={`component-${key}`} />
           );
         }
+
+        if (component.contactus) {
+          return (
+            <ContactUsSection
+              section={component.contactus}
+              key={`component-${key}`}
+            />
+          );
+        }
+
         if (component.section_with_buckets) {
           return component.section_with_buckets.bucket_tabular ? (
             <AboutSectionBucket
