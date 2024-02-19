@@ -1,4 +1,4 @@
-import { Image } from "./action";
+import { Image, Action } from "./action";
 import { Component, StandardPageComponents } from "../typescript/component";
 
 type AdditionalParam = {
@@ -76,6 +76,7 @@ export type HeaderProps = {
   social: Social;
   navigation: Navigation;
   copyright: string;
+  call_to_action: [Action];
   $: AdditionalParam;
 };
 
