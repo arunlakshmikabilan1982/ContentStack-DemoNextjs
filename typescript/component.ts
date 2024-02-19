@@ -80,10 +80,29 @@ export type Component = {
   section_with_html_code?: AdditionalParamProps;
   our_team?: TeamProps;
   widget?: Widget;
-  gallery: GallerywithImages;
   contactus?: ContactUsProps;
+  gallery: GallerywithImages;
+  specials: Specials;
 };
 
+export type Specails_Item = {
+  specials_item_sidetitle: string;
+  specials_item_maintitle: string;
+  special_item_description: string;
+  specials_item_matter: string;
+  specials_item_image: Image;
+
+};
+
+export type Specail_Item_Types = {
+  specials_item: [Specails_Item];
+};
+
+export type Specials = {
+  specials_title: string;
+  specials_desc: string;
+  specials_item_types: Specail_Item_Types;
+};
 export type StandardPageComponents = {
   gallery: GallerywithImages;
 };
@@ -102,7 +121,6 @@ export type GallerywithImages = {
   description: string;
   $: AdditionalParam;
 };
-
 export type contactus_item = {
   contactus_item_title: string;
   contactus_item_desc: string;

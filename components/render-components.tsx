@@ -11,6 +11,7 @@ import AboutSectionBucket from "./about-section-bucket";
 import SectionWithHtmlCode from "./section-with-html-code";
 import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
+import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
 
 export default function RenderComponents(props: RenderProps) {
@@ -40,9 +41,19 @@ export default function RenderComponents(props: RenderProps) {
             <Section section={component.section} key={`component-${key}`} />
           );
         }
+
         if (component.gallery) {
           return (
             <Gallery section={component.gallery} key={`component-${key}`} />
+          );
+        }
+        
+        if (component.specials) {
+          return (
+            <SpecialsSection
+              section={component.specials}
+              key={`component-${key}`}
+            />
           );
         }
 

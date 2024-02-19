@@ -170,12 +170,14 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(12, 11, 9, 0.6);
-  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+  /* background: rgba(12, 11, 9, 0.6);
+  border-bottom: 1px solid rgba(12, 11, 9, 0.6); */
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #37332a;
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  top: 40px;
+  top: 0px;
 }
 
 #header.header-scrolled {
@@ -207,14 +209,15 @@ h6 {
 # Book a table button Menu
 --------------------------------------------------------------*/
 .book-a-table-btn {
+  display: inline;
   margin: 0 0 0 15px;
   border: 2px solid #cda45e;
   color: #fff;
   border-radius: 50px;
-  padding: 8px 25px;
+  padding: 5px 20px;
   text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 300;
   letter-spacing: 1px;
   transition: 0.3s;
 }
@@ -638,6 +641,107 @@ h6 {
   100% {
     transform: scale(1, 1);
     opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Specials
+--------------------------------------------------------------*/
+
+.SpecailsMain {
+  display: grid;
+  grid-template-columns: 0.5fr 1.2fr 0.6fr;
+  grid-template-rows: 0.6fr 0.6fr 1fr;
+  grid-template-areas:
+    "ItemTitles ItemHeader ItemImg"
+    "ItemTitles ItemDesc ItemImg"
+    "ItemTitles ItemMatter ItemImg";
+  padding-left: 50px;
+  color: white;
+  background-color: black;
+}
+
+.ItemTitles {
+  grid-area: ItemTitles;
+  height: 250px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr, 5);
+}
+
+.ItemHeader {
+  grid-area: ItemHeader;
+  padding-left: 15px;
+}
+
+.ItemDesc {
+  grid-area: ItemDesc;
+  padding-left: 15px;
+}
+
+.ItemMatter {
+  grid-area: ItemMatter;
+  padding-left: 15px;
+}
+
+.ItemImage {
+  grid-area: ItemImg;
+}
+
+.SpecailsImage {
+  width: 250px;
+  height: 250px;
+}
+
+.Item {
+  padding: 3px auto;
+  text-align: start;
+  font-size: large;
+  border-right: 2px solid #bf883b;
+}
+
+.Item:hover {
+  color: #bf883b;
+}
+
+.ItemOpen {
+  padding: 3px auto;
+  text-align: start;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 200;
+  font-size: large;
+  background-color: #bf883b;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .headingDescription {
+    margin-left: 15px;
+  }
+
+  .headingTitle {
+    margin-left: 15px;
+  }
+
+  .SpecailsMain {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.9fr 0.4fr 0.4fr 0.8fr;
+    grid-template-areas:
+      "ItemTitles"
+      "ItemImg"
+      "ItemHeader"
+      "ItemDesc"
+      "ItemMatter";
+    padding-left: 15px;
+  }
+
+  .ItemHeader {
+    align-items: center;
+    align-self: center;
+  }
+
+  .ItemTitles > div {
+    border: none;
   }
 }
 
