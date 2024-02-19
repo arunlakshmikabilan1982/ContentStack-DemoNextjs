@@ -80,6 +80,7 @@ export type Component = {
   section_with_html_code?: AdditionalParamProps;
   our_team?: TeamProps;
   widget?: Widget;
+  contactus?: ContactUsProps;
   gallery: GallerywithImages;
   specials: Specials;
 };
@@ -90,6 +91,7 @@ export type Specails_Item = {
   special_item_description: string;
   specials_item_matter: string;
   specials_item_image: Image;
+
 };
 
 export type Specail_Item_Types = {
@@ -118,6 +120,18 @@ export type GallerywithImages = {
   gallery_images: GalleryImages;
   description: string;
   $: AdditionalParam;
+};
+export type contactus_item = {
+  contactus_item_title: string;
+  contactus_item_desc: string;
+  contactus_item_image: [Image];
+};
+
+export type ContactUsProps = {
+  contactus_title: string;
+  contactus_desc: string;
+  contactus_content: [contactus_item];
+  form_button: string;
 };
 
 export type Cards = {

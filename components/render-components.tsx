@@ -12,6 +12,7 @@ import SectionWithHtmlCode from "./section-with-html-code";
 import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
+import ContactUsSection from "./contactus";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -40,6 +41,13 @@ export default function RenderComponents(props: RenderProps) {
             <Section section={component.section} key={`component-${key}`} />
           );
         }
+
+        if (component.gallery) {
+          return (
+            <Gallery section={component.gallery} key={`component-${key}`} />
+          );
+        }
+        
         if (component.specials) {
           return (
             <SpecialsSection
@@ -49,11 +57,15 @@ export default function RenderComponents(props: RenderProps) {
           );
         }
 
-        if (component.gallery) {
+        if (component.contactus) {
           return (
-            <Gallery section={component.gallery} key={`component-${key}`} />
+            <ContactUsSection
+              section={component.contactus}
+              key={`component-${key}`}
+            />
           );
         }
+
         if (component.section_with_buckets) {
           return component.section_with_buckets.bucket_tabular ? (
             <AboutSectionBucket

@@ -1280,9 +1280,19 @@ section {
 }
 
 .book-a-table .php-email-form .sent-message {
-  display: none;
   color: #fff;
   background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.show-message-box {
+  display: flex;
+  justify-content: center;
+}
+.show-message {
+  color: #18d26e;
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -1543,6 +1553,27 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
+.address {
+  display: flex;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.address_image_box {
+  background-color: #cda45e;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  padding-left: 7px;
+  padding-top: 7px;
+  border-radius: 50px;
+}
+
+.address_image {
+  width: 30px;
+  height: 30px;
+}
 .contact .info {
   width: 100%;
 }
