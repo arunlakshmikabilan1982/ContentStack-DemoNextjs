@@ -117,7 +117,6 @@ export type StandardPageProps = {
   title: string;
   seo: {};
 };
-
 export type FooterProps = {
   logo: Image;
   title: string;
@@ -135,6 +134,13 @@ export type FooterProps = {
   newsletter_description: String;
   subscribe_string: String;
   navigation: Navigation;
+  usefullink_title: String;
+  usefullinks: Usefullink;
+  ourservice_title: String;
+  our_services: OurServices;
+  newsletter_title: String;
+  newsletter_description: String;
+  subscribe_string: String;
   copyright: string;
   locale: string;
   navigation_menu: [List];
