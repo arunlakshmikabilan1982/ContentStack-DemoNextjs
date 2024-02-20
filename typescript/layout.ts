@@ -1,4 +1,4 @@
-import { Image } from "./action";
+import { Image, Action } from "./action";
 import { Component, StandardPageComponents } from "../typescript/component";
 
 type AdditionalParam = {
@@ -76,6 +76,7 @@ export type HeaderProps = {
   social: Social;
   navigation: Navigation;
   copyright: string;
+  call_to_action: [Action];
   $: AdditionalParam;
 };
 
@@ -116,14 +117,6 @@ export type StandardPageProps = {
   title: string;
   seo: {};
 };
-
-type Usefullink = {
-  link: [Links];
-};
-type OurServices = {
-  link: [Links];
-};
-
 export type FooterProps = {
   logo: Image;
   title: string;
@@ -133,6 +126,13 @@ export type FooterProps = {
   phone: String;
   email: String;
   social: Social;
+  usefullink_title: String;
+  usefullinks: Navigation;
+  ourservice_title: String;
+  our_services: Navigation;
+  newsletter_title: String;
+  newsletter_description: String;
+  subscribe_string: String;
   navigation: Navigation;
   usefullink_title: String;
   usefullinks: Usefullink;
