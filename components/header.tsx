@@ -58,7 +58,7 @@ export default function Header({
   }, [header]);
   const headerData = getHeader ? getHeader : undefined;
 
-  console.log(headerData);
+  // console.log(headerData);
 
   // console.log(header);
 

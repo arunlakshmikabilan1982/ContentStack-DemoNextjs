@@ -15,6 +15,7 @@ import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
 import MenuSection from "./menu";
 import BookiingSection from "./booking";
+import BookingSection from "./booking";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -122,7 +123,7 @@ export default function RenderComponents(props: RenderProps) {
 
         if (component.booking) {
           return (
-            <BookiingSection
+            <BookingSection
               section={component.booking}
               key={`component-${key}`}
             />

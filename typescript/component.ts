@@ -75,7 +75,6 @@ export type BookingProps = {
   booking_title: string;
   booking_desc: string;
   booking_button: string;
-  $: AdditionalParam;
 };
 
 export type Component = {
