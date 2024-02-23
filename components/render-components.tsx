@@ -13,6 +13,8 @@ import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
+import MenuSection from "./menu";
+import BookiingSection from "./booking";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -36,18 +38,18 @@ export default function RenderComponents(props: RenderProps) {
             />
           );
         }
-        if (component.section) {
-          return (
-            <Section section={component.section} key={`component-${key}`} />
-          );
-        }
+        // if (component.section) {
+        //   return (
+        //     <Section section={component.section} key={`component-${key}`} />
+        //   );
+        // }
 
         if (component.gallery) {
           return (
             <Gallery section={component.gallery} key={`component-${key}`} />
           );
         }
-        
+
         if (component.specials) {
           return (
             <SpecialsSection
@@ -66,47 +68,62 @@ export default function RenderComponents(props: RenderProps) {
           );
         }
 
-        if (component.section_with_buckets) {
-          return component.section_with_buckets.bucket_tabular ? (
-            <AboutSectionBucket
-              sectionWithBuckets={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          ) : (
-            <SectionBucket
-              section={component.section_with_buckets}
-              key={`component-${key}`}
-            />
+        // if (component.section_with_buckets) {
+        //   return component.section_with_buckets.bucket_tabular ? (
+        //     <AboutSectionBucket
+        //       sectionWithBuckets={component.section_with_buckets}
+        //       key={`component-${key}`}
+        //     />
+        //   ) : (
+        //     <SectionBucket
+        //       section={component.section_with_buckets}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+        // if (component.from_blog) {
+        //   return (
+        //     <BlogSection
+        //       fromBlog={component.from_blog}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+        // if (component.section_with_cards) {
+        //   return (
+        //     <CardSection
+        //       cards={component.section_with_cards.cards}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+        // if (component.section_with_html_code) {
+        //   return (
+        //     <SectionWithHtmlCode
+        //       embedCode={component.section_with_html_code}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+        // if (component.our_team) {
+        //   return (
+        //     <TeamSection
+        //       ourTeam={component.our_team}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+
+        if (component.menu) {
+          return (
+            <MenuSection section={component.menu} key={`component-${key}`} />
           );
         }
-        if (component.from_blog) {
+
+        if (component.booking) {
           return (
-            <BlogSection
-              fromBlog={component.from_blog}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.section_with_cards) {
-          return (
-            <CardSection
-              cards={component.section_with_cards.cards}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.section_with_html_code) {
-          return (
-            <SectionWithHtmlCode
-              embedCode={component.section_with_html_code}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.our_team) {
-          return (
-            <TeamSection
-              ourTeam={component.our_team}
+            <BookiingSection
+              section={component.booking}
               key={`component-${key}`}
             />
           );

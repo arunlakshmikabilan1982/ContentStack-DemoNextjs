@@ -58,7 +58,9 @@ export default function Header({
   }, [header]);
   const headerData = getHeader ? getHeader : undefined;
 
-  console.log(header);
+  console.log(headerData);
+
+  // console.log(header);
 
   return (
     <header id="header" className="fixed-top d-flex align-items-center">
