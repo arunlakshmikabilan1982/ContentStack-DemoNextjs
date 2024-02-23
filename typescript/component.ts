@@ -83,6 +83,7 @@ export type Component = {
   contactus?: ContactUsProps;
   gallery: GallerywithImages;
   specials: Specials;
+  chef: Chef;
 };
 
 export type Specails_Item = {
@@ -103,6 +104,22 @@ export type Specials = {
   specials_desc: string;
   specials_item_types: Specail_Item_Types;
 };
+
+export type Chef_Items = {
+  chef_name: string;
+  chef_role: string;
+  chef_twitter: string;
+  chef_instagram: string;
+  chef_linkedin: string;
+  chef_facebook: string;
+  chef_pic: Image;
+}
+
+export type Chef = {
+  chef_title: string;
+  chef_description: string;
+  chef_items: [Chef_Items];
+}
 export type StandardPageComponents = {
   gallery: GallerywithImages;
 };

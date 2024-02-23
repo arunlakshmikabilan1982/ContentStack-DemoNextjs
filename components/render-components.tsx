@@ -13,6 +13,7 @@ import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
+import ChefsSection from "./chef";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -45,6 +46,12 @@ export default function RenderComponents(props: RenderProps) {
         if (component.gallery) {
           return (
             <Gallery section={component.gallery} key={`component-${key}`} />
+          );
+        }
+
+        if (component.chef) {
+          return (
+            <ChefsSection section={component.chef} key={`component-${key}`} />
           );
         }
         
