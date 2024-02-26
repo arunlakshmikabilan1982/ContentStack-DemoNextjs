@@ -39,6 +39,7 @@ type Author = {
 
 type PageProps = {
   page: Page;
+  locale: string;
   posts: [];
   archivePost: []; 
   blogPost: BlogPosts;
@@ -58,6 +59,7 @@ type Blog = {
 
 export type Props = {
   page: Page;
+  locale: string;
   entryUrl: string;
   Component: Function;
   entries: Entry;
@@ -66,6 +68,13 @@ export type Props = {
   header: HeaderProps;
   footer: FooterProps;
 }
+
+export type StaticPath = {
+  params: {
+      path: string[];
+  };
+  locale?: string;
+};
 
 export type Page ={
   page_components: Component[];
