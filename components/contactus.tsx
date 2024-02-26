@@ -47,7 +47,7 @@ export default function ContactUsSection({
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/example", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
