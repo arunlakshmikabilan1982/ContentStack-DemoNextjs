@@ -9,10 +9,11 @@ const envConfig = process.env.CONTENTSTACK_API_KEY
 
 const liveEdit = envConfig.CONTENTSTACK_LIVE_EDIT_TAGS === "true";
 
-export const getHeaderRes = async () => {
+export const getHeaderRes = async (locale) => {
   const response = await Stack.getEntry({
     contentTypeUid: "header",
     referenceFieldPath: ["navigation_menu.page_reference"],
+    locale:locale,
     jsonRtePath: ["notification_bar.announcement_text"],
   });
 
@@ -20,10 +21,11 @@ export const getHeaderRes = async () => {
   return response[0][0];
 };
 
-export const getFooterRes = async () => {
+export const getFooterRes = async (locale) => {
   const response = await Stack.getEntry({
     contentTypeUid: "footer",
     referenceFieldPath: undefined,
+    locale:locale,
     jsonRtePath: ["copyright"],
   });
   liveEdit && addEditableTags(response[0][0], "footer", true);
