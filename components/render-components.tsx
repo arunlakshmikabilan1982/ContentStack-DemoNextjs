@@ -16,6 +16,8 @@ import ContactUsSection from "./contactus";
 import Events from "./events";
 import AboutSection from "./about";
 import TestimonialSection from "./testimonial";
+import BookingReservation from "./booking_table";
+import WhyUsSection from "./why_us";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -58,12 +60,25 @@ export default function RenderComponents(props: RenderProps) {
             <AboutSection section={component.about} key={`component-${key}`} />
           );
         }
+        if (component.booking_table) {
+          return (
+            <BookingReservation
+              section={component.booking_table}
+              key={`component-${key}`}
+            />
+          );
+        }
         if (component.testimonial) {
           return (
             <TestimonialSection
               section={component.testimonial}
               key={`component-${key}`}
             />
+          );
+        }
+        if (component.why_us) {
+          return (
+            <WhyUsSection section={component.why_us} key={`component-${key}`} />
           );
         }
 
