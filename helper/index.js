@@ -49,6 +49,7 @@ export const getPageRes = async (entryUrl) => {
     jsonRtePath: [
       // "page_components.from_blog.featured_blogs.body",
       // "page_components.section_with_buckets.buckets.description",
+
       "page_components.section_with_html_code.description",
     ],
   });

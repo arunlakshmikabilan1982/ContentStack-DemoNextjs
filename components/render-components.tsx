@@ -14,8 +14,11 @@ import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
 import MenuSection from "./menu";
-import BookiingSection from "./booking";
+// import BookiingSection from "./booking";
 import BookingSection from "./booking";
+import Events from "./events";
+import AboutSection from "./about";
+import TestimonialSection from "./testimonial";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -51,6 +54,24 @@ export default function RenderComponents(props: RenderProps) {
           );
         }
 
+        if (component.events) {
+          return <Events section={component.events} key={`component-${key}`} />;
+        }
+        if (component.about) {
+
+          return (
+            <AboutSection section={component.about} key={`component-${key}`} />
+          );
+        }
+        if (component.testimonial) {
+          return (
+            <TestimonialSection
+              section={component.testimonial}
+              key={`component-${key}`}
+            />
+          );
+        }
+
         if (component.specials) {
           return (
             <SpecialsSection
@@ -68,28 +89,12 @@ export default function RenderComponents(props: RenderProps) {
             />
           );
         }
+if (component.menu) {
+          return (
+            <MenuSection section={component.menu} key={`component-${key}`} />
+          );
+        }
 
-        // if (component.section_with_buckets) {
-        //   return component.section_with_buckets.bucket_tabular ? (
-        //     <AboutSectionBucket
-        //       sectionWithBuckets={component.section_with_buckets}
-        //       key={`component-${key}`}
-        //     />
-        //   ) : (
-        //     <SectionBucket
-        //       section={component.section_with_buckets}
-        //       key={`component-${key}`}
-        //     />
-        //   );
-        // }
-        // if (component.from_blog) {
-        //   return (
-        //     <BlogSection
-        //       fromBlog={component.from_blog}
-        //       key={`component-${key}`}
-        //     />
-        //   );
-        // }
         // if (component.section_with_cards) {
         //   return (
         //     <CardSection
@@ -98,14 +103,7 @@ export default function RenderComponents(props: RenderProps) {
         //     />
         //   );
         // }
-        // if (component.section_with_html_code) {
-        //   return (
-        //     <SectionWithHtmlCode
-        //       embedCode={component.section_with_html_code}
-        //       key={`component-${key}`}
-        //     />
-        //   );
-        // }
+       
         // if (component.our_team) {
         //   return (
         //     <TeamSection
@@ -115,9 +113,12 @@ export default function RenderComponents(props: RenderProps) {
         //   );
         // }
 
-        if (component.menu) {
+         if (component.section_with_html_code) {
           return (
-            <MenuSection section={component.menu} key={`component-${key}`} />
+            <SectionWithHtmlCode
+              embedCode={component.section_with_html_code}
+              key={`component-${key}`}
+            />
           );
         }
 
