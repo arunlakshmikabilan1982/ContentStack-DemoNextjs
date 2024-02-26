@@ -1243,6 +1243,11 @@ section {
   opacity: 1;
 }
 
+.events-div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .events .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #cda45e;
 }
