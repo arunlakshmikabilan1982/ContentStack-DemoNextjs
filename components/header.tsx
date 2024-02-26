@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter, Router  } from "next/router";
 import parse from "html-react-parser";
 import Tooltip from "./tool-tip";
 import { onEntryChange } from "../contentstack-sdk";
 import { getHeaderRes } from "../helper";
 import Skeleton from "react-loading-skeleton";
 import { HeaderProps, Entry, NavLinks } from "../typescript/layout";
+import {ChangeEvent, ReactNode, useTransition} from 'react';
+import getConfig from 'next/config';
 
 export default function Header({
   header,
@@ -17,7 +19,16 @@ export default function Header({
 }) {
   const router = useRouter();
   const [getHeader, setHeader] = useState(header);
+  const [selected, setSelected] = useState('');
 
+
+  const [isPending, startTransition] = useTransition();
+  console.log("Router:",router.locale);
+  const { publicRuntimeConfig } = getConfig();
+const envConfig = process.env.CONTENTSTACK_API_KEY
+  ? process.env
+  : publicRuntimeConfig;
+const host = envConfig.HOST;
   function buildNavigation(ent: Entry, hd: HeaderProps) {
     let newHeader = { ...hd };
     if (ent.length !== newHeader.navigation_menu.length) {
@@ -38,7 +49,16 @@ export default function Header({
     }
     return newHeader;
   }
-
+  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const locale = event.target.value;
+    
+    startTransition(() => {
+    const newpath = ("http://localhost:3000"+locale+router.asPath);
+    window.location.href = newpath;
+    setSelected(event.target.value);
+    });
+    
+  }
   async function fetchData() {
     try {
       if (header && entries) {
@@ -51,14 +71,15 @@ export default function Header({
     }
   }
 
+  async function ReloadPage() {
+    window.location.reload();
+  }
   useEffect(() => {
     if (header && entries) {
       onEntryChange(() => fetchData());
     }
   }, [header]);
   const headerData = getHeader ? getHeader : undefined;
-
-  console.log(header);
 
   return (
     <header id="header" className="fixed-top d-flex align-items-center">
@@ -105,10 +126,9 @@ export default function Header({
                   <li
                     key={list.label}
                     className="nav-li"
-                    {...(list.page_reference[0].$?.url as {})}
                   >
-                    <Link href={list.page_reference[0].url}>
-                      <a className={className}>{list.label}</a>
+                    <Link className={className} href={router?.locale+list?.page_reference[0]?.url}>
+                      {list.label}
                     </Link>
                   </li>
                 );
@@ -116,9 +136,16 @@ export default function Header({
             ) : (
               <Skeleton width={300} />
             )}
+            <li className="dropdown">
+            <select value={selected} className="form-select language-switch" aria-label="Default select example" onChange={onSelectChange}>
+            <option value="">Choose Language</option>
+            <option value="/en-us">English</option>
+            <option value="/zh-cn">Chinese</option>
+            </select>
+            </li>
           </ul>
+          
         </nav>
-
         {headerData
           ? headerData?.call_to_action.map((action) => {
               return (

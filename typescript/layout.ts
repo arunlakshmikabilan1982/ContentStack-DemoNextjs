@@ -45,6 +45,11 @@ type Author = {
   $: AdditionalParam;
 };
 
+type Language = {
+  name?: string;
+  language_code?:string;
+  }
+
 type Blog = {
   url: string;
   body: string;

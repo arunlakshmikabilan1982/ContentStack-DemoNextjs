@@ -30,10 +30,11 @@ export const getFooterRes = async () => {
   return response[0][0];
 };
 
-export const getAllEntries = async () => {
+export const getAllEntries = async (locale) => {
   const response = await Stack.getEntry({
     contentTypeUid: "page",
     referenceFieldPath: undefined,
+    locale:locale,
     jsonRtePath: undefined,
   });
   liveEdit &&
@@ -41,11 +42,12 @@ export const getAllEntries = async () => {
   return response[0];
 };
 
-export const getPageRes = async (entryUrl) => {
+export const getPageRes = async (entryUrl, language) => {
   const response = await Stack.getEntryByUrl({
     contentTypeUid: "page",
     entryUrl,
     // referenceFieldPath: ['page_components.from_blog.featured_blogs'],
+    language,
     jsonRtePath: [
       // 'page_components.from_blog.featured_blogs.body',
       // 'page_components.section_with_buckets.buckets.description',

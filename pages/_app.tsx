@@ -20,7 +20,6 @@ function MyApp(props: Props) {
   const { Component, pageProps, standardPageProps, header, footer, entries } = props;
   const { page, posts, archivePost, blogPost } = pageProps;
   // const { standardpage } = standardPageProps;
-
   const metaData = (seo: any) => {
     const metaArr = [];
     for (const key in seo) {
@@ -75,10 +74,11 @@ function MyApp(props: Props) {
 }
 
 MyApp.getInitialProps = async (appContext: any) => {
+  const locale = appContext.ctx.locale;
   const appProps = await App.getInitialProps(appContext);
   const header = await getHeaderRes();
   const footer = await getFooterRes();
-  const entries = await getAllEntries();
+  const entries = await getAllEntries(locale);
 
   return { ...appProps, header, footer, entries };
 };
