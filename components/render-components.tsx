@@ -13,6 +13,9 @@ import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
+import Events from "./events";
+import AboutSection from "./about";
+import TestimonialSection from "./testimonial";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -47,7 +50,23 @@ export default function RenderComponents(props: RenderProps) {
             <Gallery section={component.gallery} key={`component-${key}`} />
           );
         }
-        
+        if (component.events) {
+          return <Events section={component.events} key={`component-${key}`} />;
+        }
+        if (component.about) {
+          return (
+            <AboutSection section={component.about} key={`component-${key}`} />
+          );
+        }
+        if (component.testimonial) {
+          return (
+            <TestimonialSection
+              section={component.testimonial}
+              key={`component-${key}`}
+            />
+          );
+        }
+
         if (component.specials) {
           return (
             <SpecialsSection
@@ -66,27 +85,27 @@ export default function RenderComponents(props: RenderProps) {
           );
         }
 
-        if (component.section_with_buckets) {
-          return component.section_with_buckets.bucket_tabular ? (
-            <AboutSectionBucket
-              sectionWithBuckets={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          ) : (
-            <SectionBucket
-              section={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.from_blog) {
-          return (
-            <BlogSection
-              fromBlog={component.from_blog}
-              key={`component-${key}`}
-            />
-          );
-        }
+        // if (component.section_with_buckets) {
+        //   return component.section_with_buckets.bucket_tabular ? (
+        //     <AboutSectionBucket
+        //       sectionWithBuckets={component.section_with_buckets}
+        //       key={`component-${key}`}
+        //     />
+        //   ) : (
+        //     <SectionBucket
+        //       section={component.section_with_buckets}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
+        // if (component.from_blog) {
+        //   return (
+        //     <BlogSection
+        //       fromBlog={component.from_blog}
+        //       key={`component-${key}`}
+        //     />
+        //   );
+        // }
         if (component.section_with_cards) {
           return (
             <CardSection
