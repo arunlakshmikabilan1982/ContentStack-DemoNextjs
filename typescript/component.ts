@@ -71,11 +71,17 @@ type Widget = {
   $: AdditionalParam;
 };
 
+export type BookingProps = {
+  booking_title: string;
+  booking_desc: string;
+  booking_button: string;
+};
+
 export type Component = {
   hero_banner: Banner;
   section?: SectionProps;
-  section_with_buckets?: SectionWithBucket;
-  from_blog?: FeaturedBlogData;
+  // section_with_buckets?: SectionWithBucket;
+  // from_blog?: FeaturedBlogData;
   section_with_cards?: Cards;
   section_with_html_code?: AdditionalParamProps;
   our_team?: TeamProps;
@@ -83,6 +89,9 @@ export type Component = {
   contactus?: ContactUsProps;
   gallery: GallerywithImages;
   specials: Specials;
+  menu: MenuProps;
+  booking: BookingProps;
+  chef: Chef;
 };
 
 export type Specails_Item = {
@@ -91,7 +100,6 @@ export type Specails_Item = {
   special_item_description: string;
   specials_item_matter: string;
   specials_item_image: Image;
-
 };
 
 export type Specail_Item_Types = {
@@ -103,6 +111,22 @@ export type Specials = {
   specials_desc: string;
   specials_item_types: Specail_Item_Types;
 };
+
+export type Chef_Items = {
+  chef_name: string;
+  chef_role: string;
+  chef_twitter: string;
+  chef_instagram: string;
+  chef_linkedin: string;
+  chef_facebook: string;
+  chef_pic: Image;
+}
+
+export type Chef = {
+  chef_title: string;
+  chef_description: string;
+  chef_items: [Chef_Items];
+}
 export type StandardPageComponents = {
   gallery: GallerywithImages;
 };
@@ -192,4 +216,31 @@ export type RenderStandardPageProps = {
   entryUid: string;
   locale: string;
   pageComponents: StandardPageComponents[];
+};
+
+export type MenuItemNames = {
+  menu_item_name: [MenuItemName];
+};
+
+export type MenuItemName = {
+  menu_item_name: string;
+};
+
+export type MenuItems = {
+  menu_item: [MenuItem];
+};
+
+export type MenuItem = {
+  menu_item_title: string;
+  menu_item_desc: string;
+  menu_item_price: string;
+  menu_item_img: Image;
+  menu_item_tags: string;
+};
+
+export type MenuProps = {
+  menu_title: string;
+  menu_desc: string;
+  menu_item_names: MenuItemNames;
+  menu_items: MenuItems;
 };
