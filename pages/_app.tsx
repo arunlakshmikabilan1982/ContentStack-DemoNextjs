@@ -76,8 +76,8 @@ function MyApp(props: Props) {
 MyApp.getInitialProps = async (appContext: any) => {
   const locale = appContext.ctx.locale;
   const appProps = await App.getInitialProps(appContext);
-  const header = await getHeaderRes();
-  const footer = await getFooterRes();
+  const header = await getHeaderRes(locale);
+  const footer = await getFooterRes(locale);
   const entries = await getAllEntries(locale);
 
   return { ...appProps, header, footer, entries };

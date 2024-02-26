@@ -49,9 +49,9 @@ export default {
    * @param {* Json RTE path} jsonRtePath
    *
    */
-  getEntry({ contentTypeUid, referenceFieldPath, jsonRtePath, locale }) {
+  getEntry({ contentTypeUid, referenceFieldPath, locale, jsonRtePath }) {
     return new Promise((resolve, reject) => {
-      const query = Stack.ContentType(contentTypeUid).Query(locale);
+      const query = Stack.ContentType(contentTypeUid).Query().language(locale);
       if (referenceFieldPath) query.includeReference(referenceFieldPath);
       query
         .includeOwner()
