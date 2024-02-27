@@ -1,25 +1,17 @@
 import React from "react";
 
-import Section from "./section";
 import HeroBanner from "./hero-banner";
 import BlogBanner from "./blog-banner";
-import CardSection from "./card-section";
-import TeamSection from "./team-section";
-import BlogSection from "./blog-section";
-import SectionBucket from "./section-bucket";
-import AboutSectionBucket from "./about-section-bucket";
 import SectionWithHtmlCode from "./section-with-html-code";
 import Gallery from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
 import MenuSection from "./menu";
-// import BookiingSection from "./booking";
 import BookingSection from "./booking";
 import Events from "./events";
 import AboutSection from "./about";
 import TestimonialSection from "./testimonial";
-// import BookingReservation from "./booking_table";
 import WhyUsSection from "./why_us";
 import ChefsSection from "./chef";
 
@@ -65,14 +57,6 @@ export default function RenderComponents(props: RenderProps) {
             <AboutSection section={component.about} key={`component-${key}`} />
           );
         }
-        if (component.booking_table) {
-          return (
-            <BookingReservation
-              section={component.booking_table}
-              key={`component-${key}`}
-            />
-          );
-        }
         if (component.testimonial) {
           return (
             <TestimonialSection
@@ -114,6 +98,14 @@ export default function RenderComponents(props: RenderProps) {
             <MenuSection section={component.menu} key={`component-${key}`} />
           );
         }
+        if (component.booking) {
+          return (
+            <BookingSection
+              section={component.booking}
+              key={`component-${key}`}
+            />
+          );
+        }
 
         // if (component.section_with_cards) {
         //   return (
@@ -137,15 +129,6 @@ export default function RenderComponents(props: RenderProps) {
           return (
             <SectionWithHtmlCode
               embedCode={component.section_with_html_code}
-              key={`component-${key}`}
-            />
-          );
-        }
-
-        if (component.booking) {
-          return (
-            <BookingSection
-              section={component.booking}
               key={`component-${key}`}
             />
           );
