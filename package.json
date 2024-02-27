@@ -11,12 +11,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^1.1.0",
     "@contentstack/live-preview-utils": "^1.2.1",
     "@contentstack/utils": "^1.2.0",
+    "@nextui-org/react": "^2.2.9",
+    "@prisma/client": "^5.8.1",
     "@textea/json-viewer": "^2.14.1",
+    "bcryptjs": "^2.4.3",
     "contentstack": "^3.16.1",
     "html-react-parser": "^3.0.12",
     "moment": "^2.29.4",
+    "mongodb": "^6.3.0",
+    "mongoose": "^7.4.1",
     "next": "^12.3.1",
     "next-auth": "^4.24.6",
     "next-localization": "^0.12.0",
@@ -28,6 +34,7 @@
     "swiper": "^11.0.6"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^18.7.18",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.20",

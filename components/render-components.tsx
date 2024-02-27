@@ -19,7 +19,7 @@ import BookingSection from "./booking";
 import Events from "./events";
 import AboutSection from "./about";
 import TestimonialSection from "./testimonial";
-import BookingReservation from "./booking_table";
+// import BookingReservation from "./booking_table";
 import WhyUsSection from "./why_us";
 import ChefsSection from "./chef";
 
@@ -61,7 +61,6 @@ export default function RenderComponents(props: RenderProps) {
           return <Events section={component.events} key={`component-${key}`} />;
         }
         if (component.about) {
-
           return (
             <AboutSection section={component.about} key={`component-${key}`} />
           );
@@ -86,7 +85,7 @@ export default function RenderComponents(props: RenderProps) {
           return (
             <WhyUsSection section={component.why_us} key={`component-${key}`} />
           );
-        }      
+        }
         if (component.specials) {
           return (
             <SpecialsSection
@@ -110,7 +109,7 @@ export default function RenderComponents(props: RenderProps) {
             />
           );
         }
-if (component.menu) {
+        if (component.menu) {
           return (
             <MenuSection section={component.menu} key={`component-${key}`} />
           );
@@ -124,7 +123,7 @@ if (component.menu) {
         //     />
         //   );
         // }
-       
+
         // if (component.our_team) {
         //   return (
         //     <TeamSection
@@ -134,7 +133,7 @@ if (component.menu) {
         //   );
         // }
 
-         if (component.section_with_html_code) {
+        if (component.section_with_html_code) {
           return (
             <SectionWithHtmlCode
               embedCode={component.section_with_html_code}
