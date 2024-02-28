@@ -47,8 +47,8 @@ type Author = {
 
 type Language = {
   name?: string;
-  language_code?:string;
-  }
+  language_code?: string;
+};
 
 type Blog = {
   url: string;
@@ -131,18 +131,11 @@ export type FooterProps = {
   phone: String;
   email: String;
   social: Social;
+  navigation: Navigation;
   usefullink_title: String;
   usefullinks: Navigation;
   ourservice_title: String;
   our_services: Navigation;
-  newsletter_title: String;
-  newsletter_description: String;
-  subscribe_string: String;
-  navigation: Navigation;
-  usefullink_title: String;
-  usefullinks: Usefullink;
-  ourservice_title: String;
-  our_services: OurServices;
   newsletter_title: String;
   newsletter_description: String;
   subscribe_string: String;

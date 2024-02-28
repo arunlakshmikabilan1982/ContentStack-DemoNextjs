@@ -88,10 +88,27 @@ export type Component = {
   widget?: Widget;
   contactus?: ContactUsProps;
   gallery: GallerywithImages;
+  about: About_props;
+  events: EventProps;
+  why_us: WhyUsProps;
+  testimonial: TestimonialProps;
   specials: Specials;
   menu: MenuProps;
   booking: BookingProps;
   chef: Chef;
+};
+type WhyUsCards = {
+  card_no: number;
+  card_descripton: String;
+
+  card_title: String;
+};
+
+export type WhyUsProps = {
+  title: String;
+  description: String;
+  why_us_items: [WhyUsCards];
+  $: AdditionalParam;
 };
 
 export type Specails_Item = {
@@ -143,6 +160,46 @@ export type GallerywithImages = {
   title_h2: string;
   gallery_images: GalleryImages;
   description: string;
+  $: AdditionalParam;
+};
+type TestimoinalItems = {
+  words_by_testimonial: String;
+  testimonial_name: String;
+  testimonial_role: String;
+  testimonial_snap: Image;
+  $: AdditionalParam;
+};
+
+export type TestimonialProps = {
+  title: String;
+  description: String;
+  testimonial_items: [TestimoinalItems];
+  $: AdditionalParam;
+};
+export type About_props = {
+  about_title: String;
+  bg_img: Image;
+  about_description: String;
+  conclution: String;
+  about_image: Image;
+  description_points: [String];
+  $: AdditionalParam;
+};
+type List_of_Events = {
+  event_image: Image;
+  event_title: String;
+  event_price: String;
+  event_description: String;
+  event_points: [String];
+  event_conclusion: String;
+  $: AdditionalParam;
+};
+
+export type EventProps = {
+  title: String;
+  description: String;
+  Background_img: Image;
+  events: [List_of_Events];
   $: AdditionalParam;
 };
 export type contactus_item = {
