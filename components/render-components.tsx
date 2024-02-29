@@ -69,7 +69,7 @@ export default function RenderComponents(props: RenderProps) {
           return (
             <WhyUsSection section={component.why_us} key={`component-${key}`} />
           );
-        }      
+        }
         if (component.specials) {
           return (
             <SpecialsSection
