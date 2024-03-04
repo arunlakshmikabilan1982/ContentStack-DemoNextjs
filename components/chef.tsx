@@ -52,7 +52,7 @@ export default function ChefSection({
     <div className="row">
     {section.chef_items.map(item => (
 
-    <div className="col-lg-4 col-md-6">
+    <div key={item.chef_name} className="col-lg-4 col-md-6">
         <div className="member aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
         <img
                 {...(item.chef_pic.$?.url as {})}
