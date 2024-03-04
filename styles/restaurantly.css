@@ -6,6 +6,16 @@
 * License: https://bootstrapmade.com/license/
 */
 
+.testimonial-img {
+  width: 100px;
+  height: 90px;
+}
+
+.gallery_img {
+  width: 400px;
+  height: 300px;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -1879,7 +1889,7 @@ section {
   color: #fff;
 }
 
-.form-select{
+.form-select {
   font-size: 10px;
   line-height: 1rem;
   background-color: black;
