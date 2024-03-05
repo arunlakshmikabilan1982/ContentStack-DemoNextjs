@@ -30,15 +30,15 @@ export default function Layout({
         const hFound = newHeader?.navigation_menu.find(
           (navLink: NavLinks) => navLink.label === entry.title
         );
-        if (!hFound) {
-          newHeader.navigation_menu?.push({
-            label: entry.title,
-            page_reference: [
-              { title: entry.title, url: entry.url, $: entry.$ },
-            ],
-            $: {},
-          });
-        }
+        // if (!hFound) {
+        //   newHeader.navigation_menu?.push({
+        //     label: entry.title,
+        //     page_reference: [
+        //       { title: entry.title, url: entry.url, $: entry.$ },
+        //     ],
+        //     $: {},
+        //   });
+        // }
         const fFound = newFooter?.navigation.link.find(
           (nlink: Links) => nlink.title === entry.title
         );

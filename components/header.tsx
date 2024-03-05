@@ -37,7 +37,7 @@ export default function Header({
         const hFound = newHeader?.navigation_menu.find(
           (navLink: NavLinks) => navLink.label === entry.title
         );
-        if (!hFound) {
+        if (hFound) {
           newHeader.navigation_menu?.push({
             label: entry.title,
             page_reference: [
