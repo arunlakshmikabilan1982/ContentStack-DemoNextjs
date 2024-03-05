@@ -5,7 +5,7 @@ import { Image } from "../typescript/action";
 type contactus_content = {
   contactus_item_title: string;
   contactus_item_desc: string;
-  contactus_item_image: [Image];
+  contactus_item_image: Image;
   $: AdditionalParam;
 };
 
@@ -17,6 +17,10 @@ type ContactUsProps = {
   contactus_title: string;
   contactus_desc: string;
   contactus_content: contactus_Contents;
+  name_input: string;
+  email_input: string;
+  subject_input: string;
+  message_input: string;
   form_button: string;
   $: AdditionalParam;
 };
@@ -36,6 +40,8 @@ export default function ContactUsSection({
   section: ContactUsProps;
 }) {
   // Example of fetching data from the API endpoint
+
+  console.log(section);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -129,7 +135,7 @@ export default function ContactUsSection({
                     name="name"
                     className="form-control"
                     id="name"
-                    placeholder="Your Name"
+                    placeholder={section.name_input}
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -141,7 +147,7 @@ export default function ContactUsSection({
                     className="form-control"
                     name="email"
                     id="email"
-                    placeholder="Your Email"
+                    placeholder={section.email_input}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -154,7 +160,7 @@ export default function ContactUsSection({
                   className="form-control"
                   name="subject"
                   id="subject"
-                  placeholder="Subject"
+                  placeholder={section.subject_input}
                   required
                   value={text}
                   onChange={(e) => setText(e.target.value)}
@@ -165,7 +171,7 @@ export default function ContactUsSection({
                   className="form-control"
                   name="message"
                   rows={8}
-                  placeholder="Message"
+                  placeholder={section.message_input}
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}

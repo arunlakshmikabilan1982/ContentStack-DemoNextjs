@@ -6,10 +6,19 @@ type AdditionalParam = {
   booking_desc: string;
 };
 
+type Input = {
+  input_name: string;
+};
+
+type BookingInputs = {
+  input: [Input];
+};
+
 type BookingProps = {
   booking_title: string;
   booking_desc: string;
   booking_button: string;
+  booking_inputs: BookingInputs;
   $: AdditionalParam;
 };
 
@@ -95,7 +104,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 name="name"
                 className="form-control"
                 id="name"
-                placeholder="Your Name"
+                placeholder={section.booking_inputs.input[0].input_name}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 data-rule="minlen:4"

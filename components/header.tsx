@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter, Router  } from "next/router";
+import { useRouter, Router } from "next/router";
 import parse from "html-react-parser";
 import Tooltip from "./tool-tip";
 import { onEntryChange } from "../contentstack-sdk";
 import { getHeaderRes } from "../helper";
 import Skeleton from "react-loading-skeleton";
 import { HeaderProps, Entry, NavLinks } from "../typescript/layout";
-import {ChangeEvent, ReactNode, useTransition} from 'react';
-import getConfig from 'next/config';
+import { ChangeEvent, ReactNode, useTransition } from "react";
+import getConfig from "next/config";
 
 export default function Header({
   header,
@@ -19,16 +19,15 @@ export default function Header({
 }) {
   const router = useRouter();
   const [getHeader, setHeader] = useState(header);
-  const [selected, setSelected] = useState('');
-
+  const [selected, setSelected] = useState("");
 
   const [isPending, startTransition] = useTransition();
-  console.log("Router:",router.locale);
+  console.log("Router:", router.locale);
   const { publicRuntimeConfig } = getConfig();
-const envConfig = process.env.CONTENTSTACK_API_KEY
-  ? process.env
-  : publicRuntimeConfig;
-const host = envConfig.HOST;
+  const envConfig = process.env.CONTENTSTACK_API_KEY
+    ? process.env
+    : publicRuntimeConfig;
+  const host = envConfig.HOST;
   function buildNavigation(ent: Entry, hd: HeaderProps) {
     let newHeader = { ...hd };
     if (ent.length !== newHeader.navigation_menu.length) {
@@ -51,13 +50,12 @@ const host = envConfig.HOST;
   }
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     const locale = event.target.value;
-    
+
     startTransition(() => {
-    const newpath = ("http://localhost:3000"+locale+router.asPath);
-    window.location.href = newpath;
-    setSelected(event.target.value);
+      const newpath = "http://localhost:3000" + locale + router.asPath;
+      window.location.href = newpath;
+      setSelected(event.target.value);
     });
-    
   }
   async function fetchData() {
     try {
@@ -123,11 +121,11 @@ const host = envConfig.HOST;
                 const className =
                   router.asPath === list.page_reference[0].url ? "active" : "";
                 return (
-                  <li
-                    key={list.label}
-                    className="nav-li"
-                  >
-                    <Link className={className} href={router?.locale+list?.page_reference[0]?.url}>
+                  <li key={list.label} className="nav-li">
+                    <Link
+                      className={className}
+                      href={router?.locale + list?.page_reference[0]?.url}
+                    >
                       {list.label}
                     </Link>
                   </li>
@@ -137,28 +135,30 @@ const host = envConfig.HOST;
               <Skeleton width={300} />
             )}
             <li className="dropdown">
-            <select value={selected} className="form-select language-switch" aria-label="Default select example" onChange={onSelectChange}>
-            <option value="">Choose Language</option>
-            <option value="/en-us">English</option>
-            <option value="/zh-cn">Chinese</option>
-            </select>
+              <select
+                value={selected}
+                className="form-select language-switch"
+                aria-label="Default select example"
+                onChange={onSelectChange}
+              >
+                <option value="">Choose Language</option>
+                <option value="/en-us">English</option>
+                <option value="/zh-cn">Chinese</option>
+              </select>
             </li>
           </ul>
-          
         </nav>
-        {headerData
-          ? headerData?.call_to_action.map((action) => {
-              return (
-                <a
-                  key={action.title}
-                  href={action?.href}
-                  className="book-a-table-btn scrollto d-none d-lg-flex"
-                >
-                  {action?.title}
-                </a>
-              );
-            })
-          : ""}
+        {headerData ? (
+          <a
+            key={headerData?.call_to_action[0].title}
+            href={headerData?.call_to_action[0]?.href}
+            className="book-a-table-btn scrollto d-none d-lg-flex"
+          >
+            {headerData?.call_to_action[0]?.title}
+          </a>
+        ) : (
+          ""
+        )}
 
         {/* <div className="json-preview">
           <Tooltip
