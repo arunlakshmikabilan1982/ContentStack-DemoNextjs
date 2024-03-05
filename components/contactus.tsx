@@ -41,7 +41,7 @@ export default function ContactUsSection({
 }) {
   // Example of fetching data from the API endpoint
 
-  console.log(section);
+  // console.log(section);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

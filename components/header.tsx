@@ -18,11 +18,13 @@ export default function Header({
   entries: Entry;
 }) {
   const router = useRouter();
+  const currentUrl = useRouter().pathname;
   const [getHeader, setHeader] = useState(header);
   const [selected, setSelected] = useState("");
 
   const [isPending, startTransition] = useTransition();
   console.log("Router:", router.locale);
+  console.log(currentUrl);
   const { publicRuntimeConfig } = getConfig();
   const envConfig = process.env.CONTENTSTACK_API_KEY
     ? process.env
@@ -95,18 +97,22 @@ export default function Header({
       <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
         <div className="logo me-auto me-lg-0">
           {headerData ? (
-            <Link href="/">
-              <a className="logo me-auto me-lg-0" title="Contentstack">
-                <img
-                  className="logo"
-                  src={headerData.logo.url}
-                  alt={headerData.title}
-                  title={headerData.title}
-                  {...(headerData.logo.$?.url as {})}
-                />
-              </a>
-            </Link>
+            // // <Link href="/home">
+            //   {/* <a className="logo me-auto me-lg-0" title="Contentstack"> */}
+            //     {/* <img
+            //       className="logo"
+            //       src={headerData.logo.url}
+            //       alt={headerData.title}
+            //       title={headerData.title}
+            //       {...(headerData.logo.$?.url as {})}
+            //     /> */}
+
+            <h1 className="logo me-auto me-lg-0">
+              <Link href={router?.locale + "/home"}>{headerData.title}</Link>
+            </h1>
           ) : (
+            //   {/* </a> */}
+            // {/* </Link> */}
             <Skeleton width={150} />
           )}
         </div>
