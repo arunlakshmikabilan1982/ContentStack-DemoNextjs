@@ -64,15 +64,8 @@ export default function Footer({
                 <p {...footerData?.$.title}>{footerData?.country}</p>
                 <br />
                 <br />
-                <p {...footerData?.$.title}>
-                  {/* {footerData?.contact_info?.map((info, index) => (
-                    <p key={index}>{info}</p>
-                  ))} */}
-                  <strong>Phone:</strong> +1 5589 55488 55
-                  <br />
-                  <strong>Email:</strong> info@example.com
-                  <br />
-                </p>
+                <p {...footerData?.$.title}>{footerData?.phone}</p>
+                <p {...footerData?.$.title}>{footerData?.email}</p>
                 <div className="social-links mt-3">
                   {footerData ? (
                     footerData.social?.social_share.map((social) => (
@@ -144,8 +137,8 @@ export default function Footer({
                 <input type="email" name="email" />
                 <input
                   type="submit"
-                  value="Subscribe"
-                  {...footerData?.$.title}
+                  value={footerData ? `${footerData?.subscribe_string}` : ""}
+                  // {...footerData?.$.title}
                 />
               </form>
             </div>

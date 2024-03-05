@@ -48,7 +48,6 @@ export default function SpecialsSection({
   const [type, settype] = useState(fullData[0]);
 
   function handleEvent(e: number) {
-    console.log(fullData);
     fullData = fullData.map((index) => {
       if (index.id === e) {
         return { ...index, open: true };
@@ -56,12 +55,8 @@ export default function SpecialsSection({
 
       return { ...index, open: false };
     });
-    console.log(fullData);
     settype(fullData.filter((index) => index.id === e)[0]);
-    console.log(type);
   }
-
-  console.log(fullData);
 
   return (
     // <section id="specials" className="specials">

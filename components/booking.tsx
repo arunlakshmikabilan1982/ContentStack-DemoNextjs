@@ -6,19 +6,17 @@ type AdditionalParam = {
   booking_desc: string;
 };
 
-type Input = {
-  input_name: string;
-};
-
-type BookingInputs = {
-  input: [Input];
-};
-
 type BookingProps = {
   booking_title: string;
   booking_desc: string;
-  booking_button: string;
-  booking_inputs: BookingInputs;
+  name_field: string;
+  email_field: string;
+  phone_field: string;
+  date_field: string;
+  time_field: string;
+  of_people_field: string;
+  message_field: string;
+  book_a_table_text: string;
   $: AdditionalParam;
 };
 
@@ -81,7 +79,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
       console.error("Error occurred:", error);
     }
   };
-  console.log(section);
+  // console.log(section);
   return (
     <section id="book-a-table" className="book-a-table">
       <div className="container" data-aos="fade-up">
@@ -104,7 +102,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 name="name"
                 className="form-control"
                 id="name"
-                placeholder={section.booking_inputs.input[0].input_name}
+                placeholder={section.name_field}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 data-rule="minlen:4"
@@ -118,7 +116,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 className="form-control"
                 name="email"
                 id="email"
-                placeholder="Your Email"
+                placeholder={section.email_field}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 data-rule="email"
@@ -132,7 +130,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 className="form-control"
                 name="phone"
                 id="phone"
-                placeholder="Your Phone"
+                placeholder={section.phone_field}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 data-rule="minlen:4"
@@ -146,7 +144,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 name="date"
                 className="form-control"
                 id="date"
-                placeholder="Date"
+                placeholder={section.date_field}
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 data-rule="minlen:4"
@@ -160,7 +158,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
                 className="form-control"
                 name="time"
                 id="time"
-                placeholder="Time"
+                placeholder={section.time_field}
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 data-rule="minlen:4"
@@ -188,7 +186,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
               className="form-control"
               name="message"
               rows={5}
-              placeholder="Message"
+              placeholder={section.message_field}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
@@ -200,7 +198,7 @@ export default function BookingSection({ section }: { section: BookingProps }) {
           </div>
 
           <div className="text-center">
-            <button type="submit">Book a Table</button>
+            <button type="submit">{section.book_a_table_text}</button>
           </div>
         </form>
       </div>
