@@ -55,7 +55,7 @@ export default function Header({
 
     startTransition(() => {
       const newpath = window.location.protocol +"//"+ window.location.host + locale + router.asPath;
-      alert(newpath);
+      // alert(newpath);
       window.location.href = newpath;
       setSelected(event.target.value);
     });
