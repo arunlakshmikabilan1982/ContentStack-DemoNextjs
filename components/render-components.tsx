@@ -3,13 +3,13 @@ import React from "react";
 import HeroBanner from "./hero-banner";
 import BlogBanner from "./blog-banner";
 import SectionWithHtmlCode from "./section-with-html-code";
-import Gallery from "./gallery";
+import GalleryImagesSection from "./gallery";
 import { RenderProps } from "../typescript/component";
 import SpecialsSection from "./specials";
 import ContactUsSection from "./contactus";
 import MenuSection from "./menu";
 import BookingSection from "./booking";
-import Events from "./events";
+import EventsSection from "./events";
 import AboutSection from "./about";
 import TestimonialSection from "./testimonial";
 import WhyUsSection from "./why_us";
@@ -45,12 +45,12 @@ export default function RenderComponents(props: RenderProps) {
 
         if (component.gallery) {
           return (
-            <Gallery section={component.gallery} key={`component-${key}`} />
+            <GalleryImagesSection section={component.gallery} key={`component-${key}`} />
           );
         }
 
         if (component.events) {
-          return <Events section={component.events} key={`component-${key}`} />;
+          return <EventsSection section={component.events} key={`component-${key}`} />;
         }
         if (component.about) {
           return (

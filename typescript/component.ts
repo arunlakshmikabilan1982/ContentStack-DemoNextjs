@@ -32,14 +32,6 @@ type BucketList = [
   }
 ];
 
-type GalleryImages = [
-  ImagesArray: {
-    url: string;
-    image: Image;
-    $: AdditionalParam;
-  }
-];
-
 type Card = [
   cardArray: {
     title_h3: string;
@@ -74,7 +66,20 @@ type Widget = {
 export type BookingProps = {
   booking_title: string;
   booking_desc: string;
-  booking_button: string;
+  name_field: string;
+  email_field: string;
+  phone_field: string;
+  date_field: string;
+  time_field: string;
+  of_people_field: string;
+  message_field: string;
+  book_a_table_text: string;
+  $: BookingAdditionalParam;
+};
+
+type BookingAdditionalParam = {
+  booking_title: string;
+  booking_desc: string;
 };
 
 export type Component = {
@@ -111,7 +116,17 @@ export type WhyUsProps = {
   $: AdditionalParam;
 };
 
+type WhyUsAdditionalParam = {
+  title: String;
+  description: String;
+  card_no: number;
+  card_descripton: String;
+  card_title: String;
+};
+
 export type Specails_Item = {
+  specials_item_active: string;
+  specials_item_id: string;
   specials_item_sidetitle: string;
   specials_item_maintitle: string;
   special_item_description: string;
@@ -137,6 +152,7 @@ export type Chef_Items = {
   chef_linkedin: string;
   chef_facebook: string;
   chef_pic: Image;
+  $: AdditionalParam;
 }
 
 export type Chef = {
@@ -158,24 +174,37 @@ export type SectionWithBucket = {
 
 export type GallerywithImages = {
   title_h2: string;
-  gallery_images: GalleryImages;
+  galleryimages: GalleryImages;
   description: string;
-  $: AdditionalParam;
 };
+
+type GalleryImages = {
+  image: [Image]
+}
+
 type TestimoinalItems = {
   words_by_testimonial: String;
   testimonial_name: String;
   testimonial_role: String;
   testimonial_snap: Image;
-  $: AdditionalParam;
+  $: TestimonialAdditionalParam;
 };
 
 export type TestimonialProps = {
   title: String;
   description: String;
   testimonial_items: [TestimoinalItems];
-  $: AdditionalParam;
+  $: TestimonialAdditionalParam;
 };
+
+type TestimonialAdditionalParam = {
+  title: string;
+  description: string;
+  words_by_testimonial: String;
+  testimonial_name: String;
+  testimonial_role: String;
+};
+
 export type About_props = {
   about_title: String;
   bg_img: Image;
@@ -183,8 +212,18 @@ export type About_props = {
   conclution: String;
   about_image: Image;
   description_points: [String];
-  $: AdditionalParam;
+  $: AboutAdditionalParam;
 };
+
+type AboutAdditionalParam = {
+  banner_title: string;
+  banner_description: string;
+  about_title: String;
+  about_description: String;
+  description_points: [String];
+  conclution: String;
+};
+
 type List_of_Events = {
   event_image: Image;
   event_title: String;
@@ -192,15 +231,24 @@ type List_of_Events = {
   event_description: String;
   event_points: [String];
   event_conclusion: String;
-  $: AdditionalParam;
+  $: EventsAdditionalParam;
 };
 
+type EventsAdditionalParam = {
+  title: string;
+  description: string;
+  event_title: String;
+  event_price: String;
+  event_description: String;
+  event_point: String;
+  event_conclusion: String;
+};
 export type EventProps = {
   title: String;
   description: String;
   Background_img: Image;
   events: [List_of_Events];
-  $: AdditionalParam;
+  $: EventsAdditionalParam;
 };
 export type contactus_item = {
   contactus_item_title: string;
@@ -211,10 +259,21 @@ export type contactus_item = {
 export type ContactUsProps = {
   contactus_title: string;
   contactus_desc: string;
-  contactus_content: [contactus_item];
+  contactus_content: contactus_Contents;
+  name_input: string;
+  email_input: string;
+  subject_input: string;
+  message_input: string;
   form_button: string;
 };
-
+type contactus_Contents = {
+  contactus_item: [contactus_content];
+};
+type contactus_content = {
+  contactus_item_title: string;
+  contactus_item_desc: string;
+  contactus_item_image: Image;
+};
 export type Cards = {
   cards: Card;
 };
@@ -224,6 +283,7 @@ export type Banner = {
   banner_description: string;
   bg_color: string;
   call_to_action: Action;
+  call_to_action_2: Action;
   banner_image: Image;
   text_color: string;
   $: AdditionalParam;
@@ -283,21 +343,29 @@ export type MenuItemName = {
   menu_item_name: string;
 };
 
-export type MenuItems = {
-  menu_item: [MenuItem];
+type MenuItems = {
+  menu_item: [CNXMenuItem];
 };
 
-export type MenuItem = {
+type MenuTag = {
+  menu_tag_name: string;
+};
+
+type MenuTags = {
+  menu_tag: [MenuTag];
+};
+
+type CNXMenuItem = {
   menu_item_title: string;
   menu_item_desc: string;
   menu_item_price: string;
-  menu_item_img: Image;
+  menu_item_image: Image;
   menu_item_tags: string;
 };
 
 export type MenuProps = {
   menu_title: string;
   menu_desc: string;
-  menu_item_names: MenuItemNames;
   menu_items: MenuItems;
+  menu_tags: MenuTags;
 };

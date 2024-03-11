@@ -6,7 +6,6 @@ type contactus_content = {
   contactus_item_title: string;
   contactus_item_desc: string;
   contactus_item_image: Image;
-  $: AdditionalParam;
 };
 
 type contactus_Contents = {
@@ -21,16 +20,6 @@ type ContactUsProps = {
   email_input: string;
   subject_input: string;
   message_input: string;
-  form_button: string;
-  $: AdditionalParam;
-};
-
-type AdditionalParam = {
-  contactus_title: string;
-  contactus_desc: string;
-  contactus_item_title: string;
-  contactus_item_desc: string;
-  contactus_item_image: [Image];
   form_button: string;
 };
 
@@ -90,10 +79,10 @@ export default function ContactUsSection({
     <section id="contact" className="contact">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
-          <h2 {...(section.$?.contactus_title as {})}>
+          <h2 {...(section?.contactus_title as {})}>
             {section.contactus_title}
           </h2>
-          <p {...(section.$?.contactus_desc as {})}>{section.contactus_desc}</p>
+          <p {...(section?.contactus_desc as {})}>{section.contactus_desc}</p>
         </div>
       </div>
 
@@ -113,10 +102,10 @@ export default function ContactUsSection({
                         ></img>
                       </div>
                       <div>
-                        <h4 {...(item.$?.contactus_item_title as {})}>
+                        <h4 {...(item?.contactus_item_title as {})}>
                           {item.contactus_item_title}
                         </h4>
-                        <p {...(item.$?.contactus_item_desc as {})}>
+                        <p {...(item?.contactus_item_desc as {})}>
                           {item.contactus_item_desc}
                         </p>
                       </div>
@@ -183,7 +172,7 @@ export default function ContactUsSection({
               </div>
 
               <div className="text-center">
-                <button type="submit" {...(section.$?.form_button as {})}>
+                <button type="submit" {...(section?.form_button as {})}>
                   {section.form_button}
                 </button>
               </div>

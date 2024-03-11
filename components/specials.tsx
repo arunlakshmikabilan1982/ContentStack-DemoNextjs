@@ -2,14 +2,6 @@
 import React, { useState } from "react";
 import { Image } from "../typescript/action";
 
-type AdditionalParam = {
-  specials_item_sidetitle: string;
-  specials_item_maintitle: string;
-  special_item_description: string;
-  specials_item_matter: string;
-  specials_item_image: Image;
-};
-
 type Specails_Item = {
   specials_item_active: string;
   specials_item_id: string;
@@ -18,7 +10,6 @@ type Specails_Item = {
   special_item_description: string;
   specials_item_matter: string;
   specials_item_image: Image;
-  $: AdditionalParam;
 };
 
 type Specail_Item_Types = {
@@ -142,18 +133,18 @@ export default function SpecialsSection({
                 >
                   <div className="row">
                     <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3 {...(type.$?.specials_item_maintitle as {})}>
+                      <h3 {...(type?.specials_item_maintitle as {})}>
                         {type.specials_item_maintitle && (
                           <span>{type.specials_item_maintitle}</span>
                         )}
                       </h3>
                       <p
                         className="fst-italic"
-                        {...(type.$?.special_item_description as {})}
+                        {...(type?.special_item_description as {})}
                       >
                         {type.special_item_description}
                       </p>{" "}
-                      <p {...(type.$?.specials_item_matter as {})}>
+                      <p {...(type?.specials_item_matter as {})}>
                         {type.specials_item_matter}
                       </p>
                     </div>

@@ -14,6 +14,7 @@ const Stack = contentstack.Stack({
     : envConfig.NEXT_PUBLIC_CONTENTSTACK_API_KEY,
   delivery_token: envConfig.CONTENTSTACK_DELIVERY_TOKEN,
   environment: envConfig.CONTENTSTACK_ENVIRONMENT,
+  branch:envConfig.CONTENTSTACK_BRANCH,
   region: envConfig.CONTENTSTACK_REGION ? envConfig.CONTENTSTACK_REGION : 'us',
   live_preview: {
     enable: true,

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Footer from './footer';
 import DevTools from './devtools';
-import { HeaderProps, FooterProps, PageProps, StandardPageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
+import { HeaderProps, FooterProps, PageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
 
 export default function Layout({
   header,
   footer,
   page,
-  // standardpage,
   blogPost,
   blogList,
   entries,
@@ -18,19 +17,17 @@ export default function Layout({
   const [getLayout, setLayout] = useState({ header, footer });
   const jsonObj: any = { header, footer };
   page && (jsonObj.page = page);
-  // standardpage && (jsonObj.page = standardpage);
   blogPost && (jsonObj.blog_post = blogPost);
   blogList && (jsonObj.blog_post = blogList);
 
-  function buildNavigation(ent: Entry, hd: HeaderProps, ft: FooterProps) {
+  function buildHeaderNavigation(ent: Entry, hd: HeaderProps) {
     let newHeader = { ...hd };
-    let newFooter = { ...ft };
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach((entry) => {
-        const hFound = newHeader?.navigation_menu.find(
-          (navLink: NavLinks) => navLink.label === entry.title
-        );
-        // if (!hFound) {
+        // const hFound = newHeader?.navigation_menu.find(
+        //   (navLink: NavLinks) => navLink.label === entry.title
+        // );
+        // if (hFound) {
         //   newHeader.navigation_menu?.push({
         //     label: entry.title,
         //     page_reference: [
@@ -39,6 +36,14 @@ export default function Layout({
         //     $: {},
         //   });
         // }
+      });
+    }
+    return newHeader;
+  }
+  function buildFooterNavigation(ent: Entry, ft: FooterProps) {
+    let newFooter = { ...ft };
+    if (ent.length !== newFooter.navigation.link.length) {
+      ent.forEach((entry) => {
         const fFound = newFooter?.navigation.link.find(
           (nlink: Links) => nlink.title === entry.title
         );
@@ -51,12 +56,13 @@ export default function Layout({
         }
       });
     }
-    return [newHeader, newFooter];
+    return newFooter;
   }
-
+ 
   useEffect(() => {
     if (footer && header && entries) {
-      const [newHeader, newFooter] = buildNavigation(entries, header, footer);
+      const newHeader = buildHeaderNavigation(entries, header);
+      const newFooter = buildFooterNavigation(entries, footer);
       setLayout({ header: newHeader, footer: newFooter });
     }
   }, [header, footer]);

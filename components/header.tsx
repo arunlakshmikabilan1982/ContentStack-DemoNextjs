@@ -29,23 +29,23 @@ export default function Header({
   const envConfig = process.env.CONTENTSTACK_API_KEY
     ? process.env
     : publicRuntimeConfig;
-  const host = envConfig.HOST;
+  const host = envConfig.NEXTAUTH_URL;
   function buildNavigation(ent: Entry, hd: HeaderProps) {
     let newHeader = { ...hd };
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach((entry) => {
-        const hFound = newHeader?.navigation_menu.find(
-          (navLink: NavLinks) => navLink.label === entry.title
-        );
-        if (hFound) {
-          newHeader.navigation_menu?.push({
-            label: entry.title,
-            page_reference: [
-              { title: entry.title, url: entry.url, $: entry.$ },
-            ],
-            $: {},
-          });
-        }
+        // const hFound = newHeader?.navigation_menu.find(
+        //   (navLink: NavLinks) => navLink.label === entry.title
+        // );
+        // if (hFound) {
+        //   newHeader.navigation_menu?.push({
+        //     label: entry.title,
+        //     page_reference: [
+        //       { title: entry.title, url: entry.url, $: entry.$ },
+        //     ],
+        //     $: {},
+        //   });
+        // }
       });
     }
     return newHeader;
@@ -54,7 +54,8 @@ export default function Header({
     const locale = event.target.value;
 
     startTransition(() => {
-      const newpath = "http://localhost:3000" + locale + router.asPath;
+      const newpath = window.location.protocol +"//"+ window.location.host + locale + router.asPath;
+      alert(newpath);
       window.location.href = newpath;
       setSelected(event.target.value);
     });

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Image } from "../typescript/action";
 
 type MenuItems = {
-  menu_item: [MenuItem];
+  menu_item: [CNXMenuItem];
 };
 
 type MenuTag = {
@@ -13,7 +13,7 @@ type MenuTags = {
   menu_tag: [MenuTag];
 };
 
-type MenuItem = {
+type CNXMenuItem = {
   menu_item_title: string;
   menu_item_desc: string;
   menu_item_price: string;
@@ -33,7 +33,7 @@ export default function MenuSection({ section }: { section: MenuProps }) {
   const [items, setItems] = useState(section?.menu_items?.menu_item);
 
   useEffect(() => {
-    let data = section?.menu_items?.menu_item.filter((item) =>
+    let data:any = section?.menu_items?.menu_item.filter((item) =>
       item.menu_item_tags.includes(tag)
     );
     setItems(data);
@@ -43,8 +43,8 @@ export default function MenuSection({ section }: { section: MenuProps }) {
     <section id="menu" className="menu section-bg">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
-          <h2 {...(section.$?.menu_title as {})}>{section.menu_title}</h2>
-          <p {...(section.$?.menu_desc as {})}>{section.menu_desc}</p>
+          <h2 {...(section.menu_title as {})}>{section.menu_title}</h2>
+          <p {...(section.menu_desc as {})}>{section.menu_desc}</p>
         </div>
 
         <div className="row" data-aos="fade-up" data-aos-delay="100">
@@ -56,7 +56,7 @@ export default function MenuSection({ section }: { section: MenuProps }) {
                     className="filter"
                     key={tag.menu_tag_name}
                     onClick={() => setTag(tag.menu_tag_name)}
-                    {...(tag.$?.menu_tag_name as {})}
+                    {...(tag.menu_tag_name as {})}
                   >
                     {tag.menu_tag_name}
                   </li>
@@ -84,16 +84,16 @@ export default function MenuSection({ section }: { section: MenuProps }) {
                   alt=""
                 />
                 <div className="menu-content">
-                  <a href="#" {...(item.$?.menu_item_title as {})}>
+                  <a href="#" {...(item.menu_item_title as {})}>
                     {item.menu_item_title}
                   </a>
-                  <span {...(item.$?.menu_item_price as {})}>
+                  <span {...(item.menu_item_price as {})}>
                     ${item.menu_item_price}
                   </span>
                 </div>
                 <div
                   className="menu-ingredients"
-                  {...(item.$?.menu_item_desc as {})}
+                  {...(item.menu_item_desc as {})}
                 >
                   ${item.menu_item_desc}
                 </div>

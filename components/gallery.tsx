@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Image } from "../typescript/action";
   
 type GalleryImages = {
-    image: [Image];
+    image: [Image]
   }
   
 type GalleryProps = {

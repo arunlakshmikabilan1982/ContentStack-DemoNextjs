@@ -3,9 +3,6 @@ import React from "react";
 type AdditionalParam = {
   title: String;
   description: String;
-  card_no: number;
-  card_descripton: String;
-  card_title: String;
 };
 
 type WhyUsCards = {
@@ -21,6 +18,7 @@ type WhyUsProps = {
   why_us_items: [WhyUsCards];
   $: AdditionalParam;
 };
+
 export default function WhyUsSection({ section }: { section: WhyUsProps }) {
   return (
     <section id="why-us" className="why-us">
