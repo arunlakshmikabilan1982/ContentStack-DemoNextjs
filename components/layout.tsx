@@ -20,23 +20,30 @@ export default function Layout({
   blogPost && (jsonObj.blog_post = blogPost);
   blogList && (jsonObj.blog_post = blogList);
 
-  function buildNavigation(ent: Entry, hd: HeaderProps, ft: FooterProps) {
+  function buildHeaderNavigation(ent: Entry, hd: HeaderProps) {
     let newHeader = { ...hd };
-    let newFooter = { ...ft };
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach((entry) => {
-        const hFound = newHeader?.navigation_menu.find(
-          (navLink: NavLinks) => navLink.label === entry.title
-        );
-        if (!hFound) {
-          newHeader.navigation_menu?.push({
-            label: entry.title,
-            page_reference: [
-              { title: entry.title, url: entry.url, $: entry.$ },
-            ],
-            $: {},
-          });
-        }
+        // const hFound = newHeader?.navigation_menu.find(
+        //   (navLink: NavLinks) => navLink.label === entry.title
+        // );
+        // if (hFound) {
+        //   newHeader.navigation_menu?.push({
+        //     label: entry.title,
+        //     page_reference: [
+        //       { title: entry.title, url: entry.url, $: entry.$ },
+        //     ],
+        //     $: {},
+        //   });
+        // }
+      });
+    }
+    return newHeader;
+  }
+  function buildFooterNavigation(ent: Entry, ft: FooterProps) {
+    let newFooter = { ...ft };
+    if (ent.length !== newFooter.navigation.link.length) {
+      ent.forEach((entry) => {
         const fFound = newFooter?.navigation.link.find(
           (nlink: Links) => nlink.title === entry.title
         );
@@ -49,12 +56,13 @@ export default function Layout({
         }
       });
     }
-    return [newHeader, newFooter];
+    return newFooter;
   }
-
+ 
   useEffect(() => {
     if (footer && header && entries) {
-      const [newHeader, newFooter] = buildNavigation(entries, header, footer);
+      const newHeader = buildHeaderNavigation(entries, header);
+      const newFooter = buildFooterNavigation(entries, footer);
       setLayout({ header: newHeader, footer: newFooter });
     }
   }, [header, footer]);

@@ -1,4 +1,4 @@
-import { Component } from "../typescript/component";
+import { Component, StandardPageComponents } from "../typescript/component";
 import { Image } from "../typescript/action";
 import { Entry, HeaderProps ,FooterProps } from "./layout";
 
@@ -39,10 +39,12 @@ type Author = {
 
 type PageProps = {
   page: Page;
+  locale: string;
   posts: [];
   archivePost: []; 
   blogPost: BlogPosts;
 }
+
 
 type Seo = {
   enable_search_indexing: boolean
@@ -57,13 +59,22 @@ type Blog = {
 
 export type Props = {
   page: Page;
+  locale: string;
   entryUrl: string;
   Component: Function;
   entries: Entry;
   pageProps: PageProps;
+  standardPageProps:StandardPageProps;
   header: HeaderProps;
   footer: FooterProps;
 }
+
+export type StaticPath = {
+  params: {
+      path: string[];
+  };
+  locale?: string;
+};
 
 export type Page ={
   page_components: Component[];
@@ -74,6 +85,21 @@ export type Page ={
   title: string;
 }
 
+export type StandardPageProps = {
+  standardpage: StandardPage;
+  entryUrl: string;
+  Component: Function;
+  entries: Entry;
+}
+
+export type StandardPage ={
+  page_components: StandardPageComponents[];
+  uid: string;
+  locale: string;
+  url: string;
+  seo: Seo;
+  title: string;
+}
 export type Context = {
   resolvedUrl: string;
   setHeader: Function;

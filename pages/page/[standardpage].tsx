@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { onEntryChange } from '../contentstack-sdk';
-import RenderComponents from '../components/render-components';
-import { getPageRes } from '../helper';
+import { onEntryChange } from '../../contentstack-sdk';
+import RenderComponents from '../../components/render-standardpage-components';
+import { getStandardPageRes } from '../../helper';
 import Skeleton from 'react-loading-skeleton';
-import { Props } from "../typescript/pages";
+import { Props } from "../../typescript/pages";
 
-export default function Page(props: Props) {
-  const { page, entryUrl } = props;
-  const [getEntry, setEntry] = useState(page);
+export default function StandardPage(props: Props) {
+  const { standardPageProps} = props;
+  const { standardpage, entryUrl } = standardPageProps;
+  const [getEntry, setEntry] = useState(standardpage);
 
   async function fetchData() {
     try {
-      const entryRes = await getPageRes(entryUrl);
+      const entryRes = await getStandardPageRes(entryUrl);
       if (!entryRes) throw new Error('Status code 404');
       setEntry(entryRes);
     } catch (error) {
@@ -21,12 +22,12 @@ export default function Page(props: Props) {
 
   useEffect(() => {
     onEntryChange(() => fetchData());
-  }, [page]);
+  }, [standardpage]);
 
   return getEntry.page_components ? (
     <RenderComponents
       pageComponents={getEntry.page_components}
-      contentTypeUid='page'
+      contentTypeUid='standardpage'
       entryUid={getEntry.uid}
       locale={getEntry.locale}
     />
@@ -35,17 +36,14 @@ export default function Page(props: Props) {
   );
 }
 
-  export async function getServerSideProps(context:any) {
+export async function getServerSideProps({params}: any) {
   try {
-      const language = context.locale;
-      const entryUrl = context.params.page.includes('/') ? context.params.page:`/${context.params.page}`
-      
-      const entryRes = await getPageRes(entryUrl, language);
+      const entryUrl = params.page.includes('/') ? params.page:`/${params.page}`
+      const entryRes = await getStandardPageRes(entryUrl);
       if (!entryRes) throw new Error('404');
       return {
         props: {
           entryUrl: entryUrl,
-          locale:language,
           page: entryRes,
         },
       };

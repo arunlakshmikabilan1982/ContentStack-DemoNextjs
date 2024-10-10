@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import { getHeaderRes, getFooterRes, getAllEntries } from '../helper';
 import 'nprogress/nprogress.css';
 import '../styles/third-party.css';
-import '../styles/style.css';
+import '../styles/restaurantly.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@contentstack/live-preview-utils/dist/main.css';
 import { Props } from "../typescript/pages";
@@ -17,9 +17,9 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp(props: Props) {
-  const { Component, pageProps, header, footer, entries } = props;
+  const { Component, pageProps, standardPageProps, header, footer, entries } = props;
   const { page, posts, archivePost, blogPost } = pageProps;
-
+  // const { standardpage } = standardPageProps;
   const metaData = (seo: any) => {
     const metaArr = [];
     for (const key in seo) {
@@ -56,11 +56,13 @@ function MyApp(props: Props) {
         <meta name='theme-color' content='#317EFB' />
         <title>Contentstack-Nextjs-Starter-App</title>
         {page?.seo && page.seo.enable_search_indexing && metaData(page.seo)}
+        {/* {standardpage?.seo && page.seo.enable_search_indexing && metaData(standardpage.seo)} */}
       </Head>
       <Layout
         header={header}
         footer={footer}
         page={page}
+        // standardpage={standardpage}
         blogPost={blogPost}
         blogList={blogList}
         entries={entries}
@@ -72,10 +74,11 @@ function MyApp(props: Props) {
 }
 
 MyApp.getInitialProps = async (appContext: any) => {
+  const locale = appContext.ctx.locale;
   const appProps = await App.getInitialProps(appContext);
-  const header = await getHeaderRes();
-  const footer = await getFooterRes();
-  const entries = await getAllEntries();
+  const header = await getHeaderRes(locale);
+  const footer = await getFooterRes(locale);
+  const entries = await getAllEntries(locale);
 
   return { ...appProps, header, footer, entries };
 };
