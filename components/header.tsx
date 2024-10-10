@@ -34,18 +34,18 @@ export default function Header({
     let newHeader = { ...hd };
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach((entry) => {
-        // const hFound = newHeader?.navigation_menu.find(
-        //   (navLink: NavLinks) => navLink.label === entry.title
-        // );
-        // if (hFound) {
-        //   newHeader.navigation_menu?.push({
-        //     label: entry.title,
-        //     page_reference: [
-        //       { title: entry.title, url: entry.url, $: entry.$ },
-        //     ],
-        //     $: {},
-        //   });
-        // }
+        const hFound = newHeader?.navigation_menu.find(
+          (navLink: NavLinks) => navLink.label === entry.title
+        );
+        if (hFound) {
+          newHeader.navigation_menu?.push({
+            label: entry.title,
+            page_reference: [
+              { title: entry.title, url: entry.url, $: entry.$ },
+            ],
+            $: {},
+          });
+        }
       });
     }
     return newHeader;
@@ -81,7 +81,7 @@ export default function Header({
     }
   }, [header]);
   const headerData = getHeader ? getHeader : undefined;
-
+console.log("headerData.logo:", headerData?.logo.url)
   return (
     <header id="header" className="fixed-top d-flex align-items-center">
       {/* <div className="note-div">
@@ -97,23 +97,19 @@ export default function Header({
       </div> */}
       <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
         <div className="logo me-auto me-lg-0">
-          {headerData ? (
-            // // <Link href="/home">
-            //   {/* <a className="logo me-auto me-lg-0" title="Contentstack"> */}
-            //     {/* <img
-            //       className="logo"
-            //       src={headerData.logo.url}
-            //       alt={headerData.title}
-            //       title={headerData.title}
-            //       {...(headerData.logo.$?.url as {})}
-            //     /> */}
-
-            <h1 className="logo me-auto me-lg-0">
-              <Link href={router?.locale + "/home"}>{headerData.title}</Link>
-            </h1>
+        {headerData ? (
+            <Link href='/'>
+              <a className='logo-tag' title='Contentstack'>
+                <img
+                  className='logo'
+                  src={headerData.logo.url}
+                  alt={headerData.title}
+                  title={headerData.title}
+                  {...headerData.logo.$?.url as {}}
+                />
+              </a>
+            </Link>
           ) : (
-            //   {/* </a> */}
-            // {/* </Link> */}
             <Skeleton width={150} />
           )}
         </div>
@@ -141,7 +137,7 @@ export default function Header({
             ) : (
               <Skeleton width={300} />
             )}
-            <li className="dropdown">
+            {/* <li className="dropdown">
               <select
                 value={selected}
                 className="form-select language-switch"
@@ -152,10 +148,10 @@ export default function Header({
                 <option value="/en-us">English</option>
                 <option value="/zh-cn">Chinese</option>
               </select>
-            </li>
+            </li> */}
           </ul>
         </nav>
-        {headerData ? (
+        {/* headerData ? (
           <a
             key={headerData?.call_to_action[0].title}
             href={headerData?.call_to_action[0]?.href}
@@ -165,7 +161,7 @@ export default function Header({
           </a>
         ) : (
           ""
-        )}
+        ) */}
 
         {/* <div className="json-preview">
           <Tooltip
