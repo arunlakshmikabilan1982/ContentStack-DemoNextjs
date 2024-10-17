@@ -1,7 +1,10 @@
 import { RenderProps } from "../typescript/component";
 import Banner from "./banner";
 import Brands from "./brands";
+import ItmaBlogNews from "./itma-blog-news";
 import ITMAConnect from "./itma-connect";
+import JoinItma from "./join-itma";
+import Register from "./register";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -19,10 +22,6 @@ export default function RenderComponents(props: RenderProps) {
           return <Register key={`component-${key}`} />;
         }
         if (component["itma-blogs-and-news"]) {
-          return (
-            <ItmaBlogNews
-            key={`component-${key}`}
-          />
           return <ItmaBlogNews key={`component-${key}`} />;
         }
 
