@@ -1960,8 +1960,17 @@ section {
   justify-content: space-between;
 }
 .logo_container {
-  height: 100%;
-  padding-top: 10px;
+  height: 40px;
+}
+
+.logo_container > a {
+  display: block;
+  height: inherit;
+}
+
+.logo_container > a > img {
+  height: inherit;
+  object-fit: contain;
 }
 
 .searchbox {

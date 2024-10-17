@@ -89,7 +89,14 @@ console.log("headerData.logo:", headerData?.logo.url)
     <header  className="d-flex flex-column align-items-center">
         <section className="header_container">
           <div className="logo_container">
-            <Image src={Logo} alt="Logo"/>
+            <a title='Contentstack'>
+            <img
+              src={headerData.logo.url}
+              alt={headerData.title}
+              title={headerData.title}
+              {...headerData.logo.$?.url as {}}
+            />
+          </a>
           </div>
         <div className="searchbox align-items-center">
           <input className="searchbox-input" type="text"></input>
