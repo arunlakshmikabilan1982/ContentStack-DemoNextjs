@@ -1906,7 +1906,7 @@ section {
 --------------------------------------------------------------*/
 :root {
   /* --image-45: url(./assets/graphics/graphics45.png); */
-  /* --image-54: url(./assets/graphics/graphics54.png); */
+  --arrow-image: url(../assets/images/arrow.png);
   --custom-width: 100vw;
   --design-width: 1440;
   --ratio: calc(var(--custom-width) / var(--design-width));
@@ -1958,6 +1958,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 50px;
 }
 .logo_container {
   height: 40px;
@@ -1975,7 +1976,7 @@ section {
 
 .searchbox {
   width: 35%;
-  margin-top: 10px;
+  margin-top: 5px;
   position: relative;
 }
 
@@ -2510,4 +2511,171 @@ section {
   text-transform: none;
   white-space: pre-wrap;
   color: #353641ff;
+}
+/*--------------------------------------------------------------
+# ITMA BLOG NEWS Component
+--------------------------------------------------------------*/
+#itma-blog-news {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#itma-blog-news:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.blog-parent {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.blog-dotted-line {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: auto;
+  align-items: flex-start;
+  padding-left: 130px;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  align-items: flex-start;
+}
+.blog-list-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 446px;
+  margin-top: 50px;
+  margin-left: 2.99%;
+}
+
+/*  */
+.blog-image-container {
+  width: 40%;
+  opacity: 1;
+  z-index: 17;
+  transform: rotate(0deg);
+}
+.blog-image {
+  width: 100%;
+  margin-top: -5%;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  object-position: top left;
+}
+/*  */
+.blog-content {
+  width: 50.08%;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+.blog-icon {
+  width: 40.46%;
+}
+
+.what-is-itma {
+  width: 100%;
+  text-align: left;
+  line-height: 0px;
+}
+
+.what-is-itma-text {
+  font-size: calc(20 * var(--ratio));
+  line-height: calc(24 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #5e2b7cff;
+}
+
+.the-worlds-larg {
+  width: 73%;
+  text-align: left;
+  line-height: 0px;
+}
+
+.the-worlds-larg-text {
+  font-size: calc(24 * var(--ratio));
+  line-height: calc(28 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #353641ff;
+}
+
+.learn-about-itm {
+  width: 73%;
+  text-align: left;
+  line-height: 0px;
+}
+
+.learn-about-itm-text {
+  font-size: calc(16 * var(--ratio));
+  line-height: calc(20 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #353641ff;
+}
+
+.blog-footer {
+  width: 41.34%;
+  display: flex;
+  flex-direction: row;
+}
+
+.read-more-about {
+  height: 100%;
+  text-align: left;
+  line-height: 0px;
+}
+.footer-arrow {
+  width: 8.38%;
+  height: 94.12%;
+  transform: rotate(0deg);
+}
+.read-more-about-text {
+  font-size: calc(14 * var(--ratio));
+  line-height: calc(14 * var(--ratio));
+  font-family: Montserrat;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #5e2b7cff;
+}
+
+.arrow-image {
+  opacity: 1;
+  background-image: var(--arrow-image);
 }
