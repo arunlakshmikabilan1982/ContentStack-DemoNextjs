@@ -21,7 +21,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
+  background: #fff;
   color: #fff;
 }
 
@@ -2163,4 +2163,129 @@ section {
   transform: rotate(0deg);
   text-align: left;
   line-height: 0px;
+}
+/*--------------------------------------------------------------
+# Banner Component
+--------------------------------------------------------------*/
+#banner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f8f3f3ff 0%, #dfdfe6ff 100%);
+  position: relative;
+  padding: 0;
+}
+
+#banner:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.banner-container {
+  width: 100%;
+  height: 9.69%;
+  top: 1.74%;
+  left: 0%;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  background: linear-gradient(90deg, #f8f3f3ff 0%, #dfdfe6ff 100%);
+}
+.cocreating-text {
+  width: 100%;
+  height: 1%;
+  padding-top: 5%;
+  /* left: 22.99%;
+  opacity: 1;
+  z-index: 7;
+  transform: rotate(0deg); */
+  text-align: center;
+  line-height: 0px;
+}
+.cocreating-text-a {
+  font-size: calc(42 * var(--ratio));
+  line-height: calc(58 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #353641ff;
+}
+.cocreating-text-b {
+  font-size: calc(42 * var(--ratio));
+  line-height: calc(58 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #5e2b7cff;
+}
+
+.banner-image-container {
+  width: 100%;
+  height: 4.96%;
+  top: 5.22%;
+  /* left: 23.06%; */
+  opacity: 1;
+  z-index: 3;
+  transform: rotate(0deg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@keyframes handhuman-animation {
+  0% {
+    transform: translateX(-50%) translateY(-10%) rotate(30deg);
+  }
+  80% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.handhuman-image {
+  width: 31%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  opacity: 1;
+  z-index: 1;
+  transform: rotate(0deg);
+  overflow: auto;
+  animation: handhuman-animation 2s cubic-bezier(0.22, 0.61, 0.36, 1) 1s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes handrobot-animation {
+  0% {
+    transform: translateX(53.87%) translateY(10%) rotate(-30deg);
+  }
+  80% {
+    transform: translateX(-1%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.handrobot-image {
+  width: 25%;
+  height: 94.08%;
+  top: 0%;
+  left: 50%;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  overflow: hidden;
+  animation: handrobot-animation 2s cubic-bezier(0.22, 0.61, 0.36, 1) 1s 1;
+  animation-fill-mode: forwards;
 }

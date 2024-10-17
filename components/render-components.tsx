@@ -14,9 +14,11 @@ import AboutSection from "./about";
 import TestimonialSection from "./testimonial";
 import WhyUsSection from "./why_us";
 import ChefsSection from "./chef";
+import Banner from "./banner";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
+  console.log("pageComponents", pageComponents)
   return (
     <div
       data-pageref={entryUid}
@@ -24,15 +26,13 @@ export default function RenderComponents(props: RenderProps) {
       data-locale={locale}
     >
       {pageComponents?.map((component, key: number) => {
-        if (component.hero_banner) {
+        if (component.banner) {
           return (
-            <HeroBanner
-              banner={component.hero_banner}
+            <Banner
               key={`component-${key}`}
             />
           );
-        }
-     
+        } 
       })}
     </div>
   );

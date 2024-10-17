@@ -82,7 +82,10 @@ type BookingAdditionalParam = {
   booking_desc: string;
 };
 
+type NewBanner = {};
+
 export type Component = {
+  banner: NewBanner;
   hero_banner: Banner;
   section?: SectionProps;
   // section_with_buckets?: SectionWithBucket;

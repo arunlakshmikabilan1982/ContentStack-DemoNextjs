@@ -86,7 +86,7 @@ export default function Header({
   const headerData = getHeader ? getHeader : undefined;
 console.log("headerData.logo:", headerData?.logo.url)
   return (
-    <header  className="fixed-top d-flex flex-column align-items-center">
+    <header  className="d-flex flex-column align-items-center">
         <section className="header_container">
           <div className="logo_container">
             <Image src={Logo} alt="Logo"/>
