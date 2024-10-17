@@ -97,10 +97,10 @@ type JoinItma = {};
 export type Component = {
   banner: BannerProps;
   register: Register;
-  "itma-blogs-and-news": ItmaBlogNews;
-  "itma-connect": ITMAConnect;
+  itma_blogs_and_news: ItmaBlogNews;
+  itma_connect: ITMAConnect;
   brands: Brands;
-  "join-itma": JoinItma;
+  join_itma: JoinItma;
 
   hero_banner: Banner;
   section?: SectionProps;
