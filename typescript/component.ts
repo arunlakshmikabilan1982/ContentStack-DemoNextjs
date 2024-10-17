@@ -94,11 +94,14 @@ type Brands = {};
 
 type JoinItma = {};
 
+type AboutITMA = {};
+
 export type Component = {
   banner: BannerProps;
   register: Register;
   itma_blogs_and_news: ItmaBlogNews;
   itma_connect: ITMAConnect;
+  about_itma: AboutITMA;
   brands: Brands;
   join_itma: JoinItma;
 

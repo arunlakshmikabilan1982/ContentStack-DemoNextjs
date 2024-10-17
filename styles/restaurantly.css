@@ -2513,15 +2513,15 @@ section {
   color: #353641ff;
 }
 /*--------------------------------------------------------------
-# ITMA BLOG NEWS Component
+# ABOUT ITMA Component
 --------------------------------------------------------------*/
-#itma-blog-news {
+#about-itma {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-#itma-blog-news:before {
+#about-itma:before {
   content: "";
   position: absolute;
   bottom: 0;

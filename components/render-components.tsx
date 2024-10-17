@@ -1,4 +1,5 @@
 import { RenderProps } from "../typescript/component";
+import AboutItma from "./about-itma";
 import Banner from "./banner";
 import Brands from "./brands";
 import ITMAConnect from "./itma-connect";
@@ -25,6 +26,12 @@ export default function RenderComponents(props: RenderProps) {
         if (component.register) {
           return <Register key={`component-${key}`} />;
         }
+
+        
+        if (component.about_itma) {
+          return <AboutItma key={`component-${key}`} />;
+        }
+
         if (component.itma_blogs_and_news) {
           return (
             <ItmaBlogNews
