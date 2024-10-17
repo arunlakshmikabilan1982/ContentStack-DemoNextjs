@@ -39,11 +39,9 @@ export default function RenderComponents(props: RenderProps) {
           />)
         }
 
-        if (component["itma_connect"]) {
+        if (component.itma_connect) {
           return (
-            <ITMAConnect
-            key={`component-${key}`}
-          />
+            <ITMAConnect section={component.itma_connect} key={`component-${key}`} />
           );
         } 
 

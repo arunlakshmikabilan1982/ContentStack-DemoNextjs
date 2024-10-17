@@ -88,7 +88,12 @@ type Register = {};
 
 type ItmaBlogNews = {};
 
-type ITMAConnect = {};
+export type ITMAConnect = {  
+  title: string;
+  heading: string;
+  description: string;
+  image: Image;
+};
 
 type Brands = {};
 
