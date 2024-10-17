@@ -84,8 +84,11 @@ type BookingAdditionalParam = {
 
 type NewBanner = {};
 
+type Register = {};
+
 export type Component = {
   banner: NewBanner;
+  register: Register;
   hero_banner: Banner;
   section?: SectionProps;
   // section_with_buckets?: SectionWithBucket;

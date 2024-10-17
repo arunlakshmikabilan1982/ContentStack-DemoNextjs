@@ -15,6 +15,7 @@ import TestimonialSection from "./testimonial";
 import WhyUsSection from "./why_us";
 import ChefsSection from "./chef";
 import Banner from "./banner";
+import Register from "./register";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -31,6 +32,13 @@ export default function RenderComponents(props: RenderProps) {
             <Banner
               key={`component-${key}`}
             />
+          );
+        } 
+        if (component.register) {
+          return (
+            <Register
+            key={`component-${key}`}
+          />
           );
         } 
       })}
