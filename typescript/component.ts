@@ -95,11 +95,11 @@ type Brands = {};
 type JoinItma = {};
 
 export type Component = {
-  banner: NewBanner;
+  banner: BannerProps;
   register: Register;
   "itma-blogs-and-news": ItmaBlogNews;
   "itma-connect": ITMAConnect;
-  "brands": Brands;
+  brands: Brands;
   "join-itma": JoinItma;
 
   hero_banner: Banner;
@@ -172,13 +172,13 @@ export type Chef_Items = {
   chef_facebook: string;
   chef_pic: Image;
   $: AdditionalParam;
-}
+};
 
 export type Chef = {
   chef_title: string;
   chef_description: string;
   chef_items: [Chef_Items];
-}
+};
 export type StandardPageComponents = {
   gallery: GallerywithImages;
 };
@@ -198,8 +198,8 @@ export type GallerywithImages = {
 };
 
 type GalleryImages = {
-  image: [Image]
-}
+  image: [Image];
+};
 
 type TestimoinalItems = {
   words_by_testimonial: String;
@@ -387,4 +387,11 @@ export type MenuProps = {
   menu_desc: string;
   menu_items: MenuItems;
   menu_tags: MenuTags;
+};
+
+export type BannerProps = {
+  banner_text_left: string;
+  banner_text_right: string;
+  banner_image_left: Image;
+  banner_image_right: Image;
 };
