@@ -9,6 +9,9 @@ import Skeleton from "react-loading-skeleton";
 import { HeaderProps, Entry, NavLinks } from "../typescript/layout";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import getConfig from "next/config";
+import Logo from '../assets/svg/logo.svg';
+import UserLogo from '../assets/svg/user-logo.svg';
+import Image from "next/image";
 
 export default function Header({
   header,
@@ -83,100 +86,61 @@ export default function Header({
   const headerData = getHeader ? getHeader : undefined;
 console.log("headerData.logo:", headerData?.logo.url)
   return (
-    <header id="header" className="fixed-top d-flex align-items-center">
-      {/* <div className="note-div">
-        {headerData?.notification_bar.show_announcement ? (
-          typeof headerData.notification_bar.announcement_text === "string" && (
-            <div {...(headerData.notification_bar.$?.announcement_text as {})}>
-              {parse(headerData.notification_bar.announcement_text)}
+    <header  className="fixed-top d-flex flex-column align-items-center">
+        <section className="header_container">
+          <div className="logo_container">
+            <Image src={Logo} alt="Logo"/>
+          </div>
+        <div className="searchbox align-items-center">
+          <input className="searchbox-input" type="text"></input>
+          <div className="search-anything-text pos-abs">
+            <span className="search-anything-0 ">Search anything</span>
+          </div>
+          <div className="search-icon pos-abs">
+            <div className="icon-color pos-abs">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/figma-plugin-a7287.appspot.com/o/user-images%2F15-oct-2024%2Fshivamdubey1728973362115%2Fimage-87-2371.png?alt=media&token=0"
+                className="pos-abs pos-init fill-parent bg-contain bg-no-repeat image-div object-fit"
+                alt="872371-ALT"
+              />
             </div>
-          )
-        ) : (
-          <Skeleton />
-        )}
-      </div> */}
-      <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-        <div className="logo me-auto me-lg-0">
-        {headerData ? (
-            <Link href='/'>
-              <a className='logo-tag' title='Contentstack'>
-                <img
-                  className='logo'
-                  src={headerData.logo.url}
-                  alt={headerData.title}
-                  title={headerData.title}
-                  {...headerData.logo.$?.url as {}}
-                />
-              </a>
-            </Link>
-          ) : (
-            <Skeleton width={150} />
-          )}
+          </div>
         </div>
-        {/* <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn">
-          <span className="navicon" />
-        </label> */}
-        <nav id="navbar" className="navbar order-last order-lg-0">
-          <ul className="nav-ul header-ul">
-            {headerData ? (
-              headerData.navigation_menu.map((list) => {
-                const className =
-                  router.asPath === list.page_reference[0].url ? "active" : "";
-                return (
-                  <li key={list.label} className="nav-li">
-                    <Link
-                      className={className}
-                      href={router?.locale + list?.page_reference[0]?.url}
-                    >
-                      {list.label}
-                    </Link>
-                  </li>
-                );
-              })
-            ) : (
-              <Skeleton width={300} />
-            )}
-            {/* <li className="dropdown">
-              <select
-                value={selected}
-                className="form-select language-switch"
-                aria-label="Default select example"
-                onChange={onSelectChange}
-              >
-                <option value="">Choose Language</option>
-                <option value="/en-us">English</option>
-                <option value="/zh-cn">Chinese</option>
-              </select>
-            </li> */}
-          </ul>
-        </nav>
-        {/* headerData ? (
-          <a
-            key={headerData?.call_to_action[0].title}
-            href={headerData?.call_to_action[0]?.href}
-            className="book-a-table-btn scrollto d-none d-lg-flex"
-          >
-            {headerData?.call_to_action[0]?.title}
-          </a>
-        ) : (
-          ""
-        ) */}
+        <div className="d-flex flex-row justify-content-between align-items-center gap-2">
+            <span className="login-text ">Login</span>
+            <Image src={UserLogo} alt="Login-logo" />
+        </div>
+      </section>
 
-        {/* <div className="json-preview">
-          <Tooltip
-            content="JSON Preview"
-            direction="top"
-            dynamic={false}
-            delay={200}
-            status={0}
-          >
-            <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <img src="/json.svg" alt="JSON Preview icon" />
-            </span>
-          </Tooltip>
-        </div> */}
-      </div>
+      <section className="menu-bar d-flex flex-row align-items-center">
+        <div className="about-itma ">
+          <span className="about-itma-text ">About ITMA</span>
+        </div>
+        <div className="exibitors ">
+          <span className="exibitors-text ">Exibitors</span>
+        </div>
+        <div className="visitors ">
+          <span className="visitors-text ">Visitors</span>
+        </div>
+        <div className="media ">
+          <span className="media-text ">Media</span>
+        </div>
+        <div className="menu-bar-events ">
+          <span className="menu-bar-events-text ">Events</span>
+        </div>
+        <div className="plan-your-trip ">
+          <span className="plan-your-trip-text ">Plan your Trip</span>
+        </div>
+        <div className="itma-blog ">
+          <span className="itma-blog-text ">ITMA Blog</span>
+        </div>
+        <div className="itma-connect ">
+          <span className="itma-connect-text ">ITMA Connect</span>
+        </div>
+        <div className="help-center ">
+          <span className="help-center-text ">Help Center</span>
+        </div>
+      </section>
     </header>
   );
 }

@@ -1901,3 +1901,266 @@ section {
   padding: 5px 20px;
   text-transform: uppercase;
 }
+/*--------------------------------------------------------------
+# NEW Header
+--------------------------------------------------------------*/
+:root {
+  /* --image-45: url(./assets/graphics/graphics45.png); */
+  /* --image-54: url(./assets/graphics/graphics54.png); */
+  --custom-width: 100vw;
+  --design-width: 1440;
+  --ratio: calc(var(--custom-width) / var(--design-width));
+}
+
+/* Default classes */
+.pos-abs {
+  position: absolute;
+}
+.fill-parent {
+  width: 100%;
+  height: 100%;
+}
+.bg-contain {
+  background-size: contain;
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-auto {
+  background-size: auto;
+}
+.bg-crop {
+  background-size: 100% 100%;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.pos-init {
+  top: 0px;
+  left: 0px;
+}
+.image-div {
+  background-color: transparent;
+  background-position: center;
+}
+/* Default classes end */
+
+.header_parent {
+  width: 100%;
+  background: #ffffffff;
+  display: flex;
+  flex-direction: row;
+}
+.header_container {
+  width: 100%;
+  padding: 5px 10% 0 10%;
+  background: #ffffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo_container {
+  height: 100%;
+  padding-top: 10px;
+}
+
+.searchbox {
+  width: 35%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.searchbox-input {
+  width: 100%;
+  height: 70%;
+  transform: rotate(0deg);
+  border-radius: 3px 3px 3px 3px;
+  background: #FBFBFF;
+  box-sizing: border-box;
+  border-left: 1px solid #eed2ffff;
+  border-right: 1px solid #eed2ffff;
+  border-top: 1px solid #eed2ffff;
+  border-bottom: 1px solid #eed2ffff;
+  box-shadow: 0px 10px 24px 0px rgba(126, 143, 211, 0.05999999865889549);
+  padding-left: 20px;
+  color: black
+}
+.searchbox-input:focus {
+  border: 1px solid #eed2ffff;
+  outline: none;
+}
+
+.search-anything-text {
+  width: 24.21%;
+  height: 56.25%;
+  top: 16.88%;
+  left: 7%;
+  text-align: left;
+  line-height: 0px;
+}
+
+.search-anything-0 {
+  font-size: calc(11 * var(--ratio));
+  line-height: calc(18 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #a5a9b1ff;
+}
+
+.search-icon {
+  width: 3.08%;
+  height: 29%;
+  top: 24%;
+  left: 2.8%;
+}
+.icon-color {
+  width: 75%;
+  height: 75%;
+  top: 12.5%;
+  left: 12.5%;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  overflow: hidden;
+}
+
+.login-text {
+  font-size: calc(14 * var(--ratio));
+  line-height: calc(21 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #353641ff;
+}
+
+.menu-bar {
+  width: 100%;
+  background: #f2e6f9ff;
+  padding: 1%;
+  gap: 30px;
+  justify-content: center;
+}
+
+.about-itma {
+  width: 6.56%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 15.69%;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.about-itma-text,
+.exibitors-text,
+.visitors-text,
+.media-text,
+.menu-bar-events-text,
+.plan-your-trip-text,
+.itma-blog-text,
+.itma-connect-text,
+.help-center-text {
+  font-size: calc(14 * var(--ratio));
+  line-height: calc(14 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #353641ff;
+  cursor: pointer;
+}
+.exibitors {
+  width: 4.1%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 24.38%;
+  opacity: 1;
+  z-index: 1;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.visitors {
+  width: 3.61%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 31.6%;
+  opacity: 1;
+  z-index: 2;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.media {
+  width: 3.06%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 38.33%;
+  opacity: 1;
+  z-index: 3;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.menu-bar-events {
+  width: 3.19%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 44.51%;
+  opacity: 1;
+  z-index: 4;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.plan-your-trip {
+  width: 7.67%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 50.83%;
+  opacity: 1;
+  z-index: 5;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.itma-blog {
+  width: 5.79%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 60.62%;
+  opacity: 1;
+  z-index: 6;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.itma-connect {
+  width: 7.81%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 68.54%;
+  opacity: 1;
+  z-index: 7;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
+.help-center {
+  width: 6.83%;
+  height: 46.67%;
+  top: 33.67%;
+  left: 78.47%;
+  opacity: 1;
+  z-index: 8;
+  transform: rotate(0deg);
+  text-align: left;
+  line-height: 0px;
+}
