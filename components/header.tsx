@@ -89,14 +89,20 @@ console.log("headerData.logo:", headerData?.logo.url)
     <header  className="d-flex flex-column align-items-center">
         <section className="header_container">
           <div className="logo_container">
-            <a title='Contentstack'>
-            <img
-              src={headerData.logo.url}
-              alt={headerData.title}
-              title={headerData.title}
-              {...headerData.logo.$?.url as {}}
-            />
-          </a>
+          {headerData ? (
+            <Link href='/home'>
+              <a>
+                <img
+                  src={headerData.logo.url}
+                  alt={headerData.title}
+                  title={headerData.title}
+                  {...headerData.logo.$?.url as {}}
+                />
+                </a>
+            </Link>
+          ) : (
+            <Skeleton width={150} />
+          )}
           </div>
         <div className="searchbox align-items-center">
           <input className="searchbox-input" type="text"></input>
@@ -121,31 +127,31 @@ console.log("headerData.logo:", headerData?.logo.url)
 
       <section className="menu-bar d-flex flex-row align-items-center">
         <div className="about-itma ">
-          <span className="about-itma-text ">About ITMA</span>
+          <span className="about-itma-text "><a href="https://itma.com/about-itma">About ITMA</a></span>
         </div>
         <div className="exibitors ">
-          <span className="exibitors-text ">Exibitors</span>
+          <span className="exibitors-text "><a href="https://itma.com/exhibitors">Exibitors</a></span>
         </div>
         <div className="visitors ">
-          <span className="visitors-text ">Visitors</span>
+          <span className="visitors-text "><a href="https://itma.com/visitors">Visitors</a></span>
         </div>
         <div className="media ">
-          <span className="media-text ">Media</span>
+          <span className="media-text "><a href="https://itma.com/media">Media</a></span>
         </div>
         <div className="menu-bar-events ">
-          <span className="menu-bar-events-text ">Events</span>
+          <span className="menu-bar-events-text "><a href="https://itma.com/events">Events</a></span>
         </div>
         <div className="plan-your-trip ">
-          <span className="plan-your-trip-text ">Plan your Trip</span>
+          <span className="plan-your-trip-text "><a href="https://itma.com/plan-your-trip">Plan your Trip</a></span>
         </div>
         <div className="itma-blog ">
-          <span className="itma-blog-text ">ITMA Blog</span>
+          <span className="itma-blog-text "><a href="https://itma.com/blogs">ITMA Blog</a></span>
         </div>
         <div className="itma-connect ">
-          <span className="itma-connect-text ">ITMA Connect</span>
+          <span className="itma-connect-text "><a href="https://itma.com/itmaconnect">ITMA Connect</a></span>
         </div>
         <div className="help-center ">
-          <span className="help-center-text ">Help Center</span>
+          <span className="help-center-text "><a href="https://itma.com/help-centre">Help Center</a></span>
         </div>
       </section>
     </header>

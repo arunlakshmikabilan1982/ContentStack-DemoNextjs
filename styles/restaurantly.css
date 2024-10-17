@@ -2083,7 +2083,13 @@ section {
   text-transform: none;
   white-space: pre-wrap;
   color: #353641ff;
-  cursor: pointer;
+  a{
+    color:#353641ff;
+  }
+  a:hover{
+      color: #19c0f2;
+  }
+
 }
 .exibitors {
   width: 4.1%;
