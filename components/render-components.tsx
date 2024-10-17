@@ -16,6 +16,10 @@ import WhyUsSection from "./why_us";
 import ChefsSection from "./chef";
 import Banner from "./banner";
 import Register from "./register";
+import ItmaBlogNews from "./itma-blog-news";
+import JoinItma from "./join-itma";
+import Brands from "./brands";
+import ITMAConnect from "./itma-connect";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -37,6 +41,37 @@ export default function RenderComponents(props: RenderProps) {
         if (component.register) {
           return (
             <Register
+            key={`component-${key}`}
+          />
+          );
+        } 
+        if (component["itma-blogs-and-news"]) {
+          return (
+            <ItmaBlogNews
+            key={`component-${key}`}
+          />
+          );
+        } 
+
+        if (component["itma-connect"]) {
+          return (
+            <ITMAConnect
+            key={`component-${key}`}
+          />
+          );
+        } 
+
+        if (component["brands"]) {
+          return (
+            <Brands
+            key={`component-${key}`}
+          />
+          );
+        } 
+
+        if (component["join-itma"]) {
+          return (
+            <JoinItma
             key={`component-${key}`}
           />
           );

@@ -86,9 +86,22 @@ type NewBanner = {};
 
 type Register = {};
 
+type ItmaBlogNews = {};
+
+type ITMAConnect = {};
+
+type Brands = {};
+
+type JoinItma = {};
+
 export type Component = {
   banner: NewBanner;
   register: Register;
+  "itma-blogs-and-news": ItmaBlogNews;
+  "itma-connect": ITMAConnect;
+  "brands": Brands;
+  "join-itma": JoinItma;
+
   hero_banner: Banner;
   section?: SectionProps;
   // section_with_buckets?: SectionWithBucket;
