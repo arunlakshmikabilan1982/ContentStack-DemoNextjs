@@ -25,114 +25,14 @@ export default function RenderComponents(props: RenderProps) {
     >
       {pageComponents?.map((component, key: number) => {
         if (component.hero_banner) {
-          return blogPost ? (
-            <BlogBanner
-              blogBanner={component.hero_banner}
-              key={`component-${key}`}
-            />
-          ) : (
+          return (
             <HeroBanner
               banner={component.hero_banner}
               key={`component-${key}`}
             />
           );
         }
-        // if (component.section) {
-        //   return (
-        //     <Section section={component.section} key={`component-${key}`} />
-        //   );
-        // }
-
-        if (component.gallery) {
-          return (
-            <GalleryImagesSection section={component.gallery} key={`component-${key}`} />
-          );
-        }
-
-        if (component.events) {
-          return <EventsSection section={component.events} key={`component-${key}`} />;
-        }
-        if (component.about) {
-          return (
-            <AboutSection section={component.about} key={`component-${key}`} />
-          );
-        }
-        if (component.testimonial) {
-          return (
-            <TestimonialSection
-              section={component.testimonial}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.why_us) {
-          return (
-            <WhyUsSection section={component.why_us} key={`component-${key}`} />
-          );
-        }
-        if (component.specials) {
-          return (
-            <SpecialsSection
-              section={component.specials}
-              key={`component-${key}`}
-            />
-          );
-        }
-
-        if (component.chef) {
-          return (
-            <ChefsSection section={component.chef} key={`component-${key}`} />
-          );
-        }
-
-        if (component.contactus) {
-          return (
-            <ContactUsSection
-              section={component.contactus}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.menu) {
-          return (
-            <MenuSection section={component.menu} key={`component-${key}`} />
-          );
-        }
-        if (component.booking) {
-          return (
-            <BookingSection
-              section={component.booking}
-              key={`component-${key}`}
-            />
-          );
-        }
-
-        // if (component.section_with_cards) {
-        //   return (
-        //     <CardSection
-        //       cards={component.section_with_cards.cards}
-        //       key={`component-${key}`}
-        //     />
-        //   );
-        // }
-
-        // if (component.our_team) {
-        //   return (
-        //     <TeamSection
-        //       ourTeam={component.our_team}
-        //       key={`component-${key}`}
-        //     />
-        //   );
-        // }
-
-        if (component.section_with_html_code) {
-          return (
-            <SectionWithHtmlCode
-              embedCode={component.section_with_html_code}
-              key={`component-${key}`}
-            />
-          );
-        }
+     
       })}
     </div>
   );
