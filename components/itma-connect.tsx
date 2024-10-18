@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { Image, Action } from "../typescript/action";
+import { Image as ImageType, Action } from "../typescript/action";
 import { useState } from "react";
 import BlogIcon from '../assets/svg/blog-icon.svg';
-  
+import Image from "next/image";
+
   type ITMAConnectProps = {
     title: string;
     heading: string;
     description: string;
-    image: Image;
+    image: ImageType;
   };
 
   export default function ITMAConnect({ section }: { section: ITMAConnectProps }) {
@@ -16,7 +17,8 @@ import BlogIcon from '../assets/svg/blog-icon.svg';
       <section id="itma-connect">
            <div className="connect-text">
             <div className="connect-icon">
-              <img src={BlogIcon} />
+              <Image src={BlogIcon} alt="logo" width="16px" height="24px"/>
+              {/* <img src={BlogIcon} /> */}
             </div>
             <div className="connect-title">
               <span  className="connect-title-text">{section?.title}</span>
