@@ -2771,7 +2771,7 @@ section {
 }
 .itma-bn-card-container {
   width: 274px;
-  height: 338px;
+  /* height: 338px; */
 }
 .property-1frame-771644,
 .property-1frame-771647,
@@ -2813,7 +2813,7 @@ section {
 .image-771528,
 .image-771603 {
   width: 100%;
-  height: 50.89%;
+  /* height: 50.89%; */
   top: 0%;
   left: 0%;
   opacity: 1;
@@ -2838,7 +2838,7 @@ section {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  padding-top: 22px;
+  padding-top: 10px;
   /* height: 50.86%; */
 }
 .frame-3384-771472,
@@ -3102,14 +3102,13 @@ section {
 .read-more-771619 {
   width: 73.63%;
   height: 100%;
-  top: 0%;
-  left: 0%;
-  opacity: 1;
-  z-index: 0;
-  transform: rotate(0deg);
   text-align: left;
   line-height: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
+
 .read-more-771486-0,
 .read-more-771227-0,
 .read-more-771544-0,

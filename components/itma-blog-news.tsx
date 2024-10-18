@@ -29,7 +29,7 @@ export default function ItmaBlogNews() {
           <div className="frame-3467-771469" id="id-771469">
             <div className="image-771470" id="id-771470">
               <div
-                className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
+                className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
                 id="id-bg-771470"
               >
                 <Image src={BlogImage1} alt="icon"/>
@@ -51,7 +51,7 @@ export default function ItmaBlogNews() {
                 <div className="group-3258-771476" id="id-771476">
                   <div className="ellipse-322-771477" id="id-771477">
                     <div
-                      className="pos-abs image-div bg-no-repeat bg-crop nodeBg-771477"
+                      className=" image-div bg-no-repeat bg-crop nodeBg-771477"
                       id="id-bg-771477"
                     >
                       <Image src={ProfileIcon} alt="icon"/>
@@ -76,6 +76,7 @@ export default function ItmaBlogNews() {
               <div className="frame-3487-771485" id="id-771485">
                 <div className="read-more-771486" id="id-771486">
                   <span className="read-more-771486-0 ">Read more</span>
+                  {/* <Image src={ArrowIcon} alt="icon" width="16px" height="16px"/> */}
                 </div>
                 <div className="frame-3483-771487" id="id-771487">
                   <div className="arrow-1-771488" id="id-771488">
@@ -96,7 +97,7 @@ export default function ItmaBlogNews() {
           <div className="frame-3467-771469" id="id-771469">
             <div className="image-771470" id="id-771470">
               <div
-                className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
+                className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
                 id="id-bg-771470"
               >
                 <Image src={BlogImage2} alt="icon"/>
@@ -118,7 +119,7 @@ export default function ItmaBlogNews() {
                 <div className="group-3258-771476" id="id-771476">
                   <div className="ellipse-322-771477" id="id-771477">
                     <div
-                      className="pos-abs image-div bg-no-repeat bg-crop nodeBg-771477"
+                      className=" image-div bg-no-repeat bg-crop nodeBg-771477"
                       id="id-bg-771477"
                     >
                       <Image src={ProfileIcon} alt="icon"/>
@@ -143,6 +144,7 @@ export default function ItmaBlogNews() {
               <div className="frame-3487-771485" id="id-771485">
                 <div className="read-more-771486" id="id-771486">
                   <span className="read-more-771486-0 ">Read more</span>
+                  {/* <Image src={ArrowIcon} alt="icon" width="16px" height="16px"/> */}
                 </div>
                 <div className="frame-3483-771487" id="id-771487">
                   <div className="arrow-1-771488" id="id-771488">
@@ -161,7 +163,7 @@ export default function ItmaBlogNews() {
           <div className="frame-3467-771469" id="id-771469">
             <div className="image-771470" id="id-771470">
               <div
-                className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
+                className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
                 id="id-bg-771470"
               >
                 <Image src={BlogImage4} alt="icon"/>
@@ -183,7 +185,7 @@ export default function ItmaBlogNews() {
                 <div className="group-3258-771476" id="id-771476">
                   <div className="ellipse-322-771477" id="id-771477">
                     <div
-                      className="pos-abs image-div bg-no-repeat bg-crop nodeBg-771477"
+                      className=" image-div bg-no-repeat bg-crop nodeBg-771477"
                       id="id-bg-771477"
                     >
                       <Image src={ProfileIcon} alt="icon"/>
@@ -208,6 +210,7 @@ export default function ItmaBlogNews() {
               <div className="frame-3487-771485" id="id-771485">
                 <div className="read-more-771486" id="id-771486">
                   <span className="read-more-771486-0 ">Read more</span>
+                  {/* <Image src={ArrowIcon} alt="icon" width="16px" height="16px"/> */}
                 </div>
                 <div className="frame-3483-771487" id="id-771487">
                   <div className="arrow-1-771488" id="id-771488">
@@ -226,7 +229,7 @@ export default function ItmaBlogNews() {
           <div className="frame-3467-771469" id="id-771469">
             <div className="image-771470" id="id-771470">
               <div
-                className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
+                className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-771470"
                 id="id-bg-771470"
               >
                 <Image src={BlogImage3} alt="icon"/>
@@ -248,7 +251,7 @@ export default function ItmaBlogNews() {
                 <div className="group-3258-771476" id="id-771476">
                   <div className="ellipse-322-771477" id="id-771477">
                     <div
-                      className="pos-abs image-div bg-no-repeat bg-crop nodeBg-771477"
+                      className=" image-div bg-no-repeat bg-crop nodeBg-771477"
                       id="id-bg-771477"
                     >
                       <Image src={ProfileIcon} alt="icon"/>
@@ -273,6 +276,7 @@ export default function ItmaBlogNews() {
               <div className="frame-3487-771485" id="id-771485">
                 <div className="read-more-771486" id="id-771486">
                   <span className="read-more-771486-0 ">Read more</span>
+                  {/* <Image src={ArrowIcon} className="footer-icon" alt="icon" width="10px" height="10px"/> */}
                 </div>
                 <div className="frame-3483-771487" id="id-771487">
                   <div className="arrow-1-771488" id="id-771488">
