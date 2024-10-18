@@ -47,7 +47,7 @@ import Image from "next/image";
             </div>
           </div>
           <div className="connect-learn-more">
-            <span className="connect-learn-more-text ">Learn More</span>
+            <span className="connect-learn-more-text "><a href="https://itma.com/itmaconnect">Learn More</a></span>
           </div>
       </section>
     );

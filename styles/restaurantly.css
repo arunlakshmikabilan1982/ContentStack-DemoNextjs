@@ -3384,4 +3384,11 @@ section {
   text-transform: none;
   white-space: pre-wrap;
   color: #5e2b7cff;
+
+  a{
+    color:#353641ff;
+  }
+  a:hover{
+      color: #19c0f2;
+  }
 }
