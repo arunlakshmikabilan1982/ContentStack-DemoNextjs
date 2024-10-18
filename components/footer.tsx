@@ -5,6 +5,14 @@ import { onEntryChange } from "../contentstack-sdk";
 import { getFooterRes } from "../helper";
 import Skeleton from "react-loading-skeleton";
 import { FooterProps, Entry, Links } from "../typescript/layout";
+import Image from "next/image";
+import LogoFooter from "../assets/images/logo-footer.png";
+import facebook from "../assets/svg/facebook.svg";
+import instagram from "../assets/svg/instagram.svg";
+import linkedin from "../assets/svg/Linkedin.svg";
+import twitter from "../assets/svg/twitter.svg";
+import wechat from "../assets/svg/wechat.svg";
+import youtube from "../assets/svg/Youtube.svg";
 
 export default function Footer({
   footer,
@@ -54,190 +62,111 @@ export default function Footer({
 
   return (
     <footer id="footer">
-      <div className="footer-top">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-md-6">
-              <div className="footer-info">
-                <h3 {...footerData?.$.title}>{footerData?.title}</h3>
-                <p {...footerData?.$.title}> {footerData?.city}</p>
-                <p {...footerData?.$.title}>{footerData?.country}</p>
-                <br />
-                <br />
-                <p {...footerData?.$.title}>{footerData?.phone}</p>
-                <p {...footerData?.$.title}>{footerData?.email}</p>
-                <div className="social-links mt-3">
-                  {footerData ? (
-                    footerData.social?.social_share.map((social) => (
-                      <a
-                        href={social.link.href}
-                        title={social.link.title}
-                        key={social.link.title}
-                      >
-                        {social.icon && (
-                          <img
-                            src={social.icon.url}
-                            alt={social.link.title}
-                            {...(social.icon.$?.url as {})}
-                          />
-                        )}
-                      </a>
-                    ))
-                  ) : (
-                    <Skeleton width={200} />
-                  )}
-                </div>
+      <div className="footer-parent ">
+        <div className="footer-a ">
+          <div className="footer-logo-container ">
+            <div className="footer-logo-name ">
+              <Image src={LogoFooter} alt="logo" width="38px" height="32px" />
+              <span className="itma-2027">ITMA 2027</span>
+            </div>
+            <span className="followus">Follow US</span>
+            <div className="footericons">
+              <Image src={facebook} alt="logo" width="32px" height="32px" />
+              <Image src={instagram} alt="logo" width="32px" height="32px" />
+              <Image src={linkedin} alt="logo" width="32px" height="32px" />
+              <Image src={twitter} alt="logo" width="32px" height="32px" />
+              <Image src={wechat} alt="logo" width="32px" height="32px" />
+              <Image src={youtube} alt="logo" width="32px" height="32px" />
+            </div>
+          </div>
+          <div className="footer-menu-a ">
+            <div className="about-us ">
+              <span className="about-us-0 ">About Us</span>
+            </div>
+            <div className="menu-a-content ">
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">About ITMA</span>
+              </div>
+              <div className="events-872810 ">
+                <span className="events-872810-0 ">Events</span>
               </div>
             </div>
-
-            <div className="col-lg-2 col-md-6 footer-links">
-              <h4 {...footerData?.$.title}>{footerData?.usefullink_title}</h4>
-              <ul>
-                {footerData ? (
-                  footerData.usefullinks.link.map((useFulLinks) => (
-                    <li
-                      className="footer-nav-li"
-                      key={useFulLinks.title}
-                      {...useFulLinks.$?.title}
-                    >
-                      <Link href={useFulLinks.href}>{useFulLinks.title}</Link>
-                    </li>
-                  ))
-                ) : (
-                  <Skeleton width={300} />
-                )}
-              </ul>
+          </div>
+          <div className="footer-menu-a ">
+            <div className="about-us ">
+              <span className="about-us-0 ">Exhibitors & Visitors</span>
             </div>
-
-            <div className="col-lg-3 col-md-6 footer-links">
-              <h4 {...footerData?.$.title}>{footerData?.ourservice_title}</h4>
-              <ul>
-                {footerData ? (
-                  footerData.our_services.link.map((OurService) => (
-                    <li
-                      className="footer-nav-li"
-                      key={OurService.title}
-                      {...OurService.$?.title}
-                    >
-                      <Link href={OurService.href}>{OurService.title}</Link>
-                    </li>
-                  ))
-                ) : (
-                  <Skeleton width={300} />
-                )}
-              </ul>
+            <div className="menu-a-content ">
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Exhibitors</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Visitors</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Plan Your Trip</span>
+              </div>
             </div>
-
-            <div className="col-lg-4 col-md-6 footer-newsletter">
-              <h4 {...footerData?.$.title}>{footerData?.newsletter_title}</h4>
-              <p {...footerData?.$.title}>
-                {footerData?.newsletter_description}
-              </p>
-              <form action="" method="post">
-                <input type="email" name="email" />
-                <input
-                  type="submit"
-                  value={footerData ? `${footerData?.subscribe_string}` : ""}
-                  // {...footerData?.$.title}
-                />
-              </form>
+          </div>
+          <div className="footer-menu-a ">
+            <div className="about-us ">
+              <span className="about-us-0 ">Media & Resources</span>
+            </div>
+            <div className="menu-a-content ">
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Media</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Media Gallery</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">ITMA Blog</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">ITMA Connect</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Resources</span>
+              </div>
+            </div>
+          </div>
+          <div className="footer-menu-a ">
+            <div className="about-us ">
+              <span className="about-us-0 ">Support</span>
+            </div>
+            <div className="menu-a-content ">
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Help Centre</span>
+              </div>
+              <div className="about-itma-872809 ">
+                <span className="about-itma-872809-0 ">Contact Us</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container">
-        <div className="copyright">
-          {footerData && typeof footerData.copyright === "string" ? (
-            <div className="copyright" {...(footer.$?.copyright as {})}>
-              {parse(footerData.copyright)}
+        <div className="footer-b ">
+          <div className="footer-b-content">
+            <div className="privacy-notice-872832 ">
+              <span className="privacy-notice-872832-0 ">Privacy Notice </span>
             </div>
-          ) : (
-            <div className="copyright">
-              <Skeleton width={500} />
+            <div className="cookies-setting-872834 ">
+              <span className="cookies-setting-872834-0 ">Cookies Settings</span>
             </div>
-          )}
+            <div className="terms-of-use-872836 ">
+              <span className="terms-of-use-872836-0 ">Terms of Use</span>
+            </div>
+            <div className="feedback-872838 ">
+              <span className="feedback-872838-0 ">Feedback</span>
+            </div>
+          </div>
+          <div className="copyright-footer ">
+            <span className="copyright--2021-872839-0 ">
+              Copyright © 2021 ITMA Services. All rights reserved.
+            </span>
+          </div>
         </div>
-        {/* <div className="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
-          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-        </div> */}
       </div>
     </footer>
   );
 }
-// <footer>
-//   <div className='max-width footer-div'>
-//     <div className='col-quarter'>
-//       {footerData && footerData.logo ? (
-//         <Link href='/'>
-//           <a className='logo-tag'>
-//             <img
-//               src={footerData.logo.url}
-//               alt={footerData.title}
-//               title={footerData.title}
-//               {...footer.logo.$?.url as {}}
-//               className='logo footer-logo'
-//             />
-//           </a>
-//         </Link>
-//       ) : (
-//         <Skeleton width={150} />
-//       )}
-//     </div>
-//     <div className='col-half'>
-//       <nav>
-//         <ul className='nav-ul'>
-//           {footerData ? (
-//             footerData.navigation.link.map((menu) => (
-//               <li
-//                 className='footer-nav-li'
-//                 key={menu.title}
-//                 {...menu.$?.title}
-//               >
-//                 <Link href={menu.href}>{menu.title}</Link>
-//               </li>
-//             ))
-//           ) : (
-//             <Skeleton width={300} />
-//           )}
-//         </ul>
-//       </nav>
-//     </div>
-//     <div className='col-quarter social-link'>
-//       <div className='social-nav'>
-//         {footerData ? (
-//           footerData.social?.social_share.map((social) => (
-//             <a
-//               href={social.link.href}
-//               title={social.link.title}
-//               key={social.link.title}
-//             >
-//               {social.icon && (
-//                 <img
-//                   src={social.icon.url}
-//                   alt={social.link.title}
-//                   {...social.icon.$?.url as {}}
-//                 />
-//               )}
-//             </a>
-//           ))
-//         ) : (
-//           <Skeleton width={200} />
-//         )}
-//       </div>
-//     </div>
-//   </div>
-//   {footerData && typeof footerData.copyright === 'string' ? (
-//     <div className='copyright' {...footer.$?.copyright as {}}>
-//       {parse(footerData.copyright)}
-//     </div>
-//   ) : (
-//     <div className='copyright'>
-//       <Skeleton width={500} />
-//     </div>
-//   )}
-// </footer>
+
