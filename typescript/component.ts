@@ -84,7 +84,17 @@ type BookingAdditionalParam = {
 
 type NewBanner = {};
 
-type Register = {};
+type Register = {
+  logo: Image;
+  country_text: string;
+  city_text: string;
+  register_blog_url: string;
+  register_deadline_date: string,
+  register_now_button_text: string;
+  date_container_text: string;
+  calendar_icon: string;
+  add_event_calendar_text: string;
+};
 
 type ItmaBlogNews = {};
 
