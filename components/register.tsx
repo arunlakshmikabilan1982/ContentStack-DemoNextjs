@@ -1,41 +1,54 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Logo from '../assets/svg/logo.svg';
+import { Image } from "../typescript/action";
 
-export default function Register() {
+type RegisterProps ={
+  logo: Image;
+  country_text: string;
+  city_text: string;
+  register_blog_url: string;
+  register_deadline_date: string,
+  register_now_button_text: string;
+  date_container_text: string;
+  calendar_icon: string;
+  add_event_calendar_text: string;
+};   
+
+export default function Register({section}: {section: RegisterProps}) {
   return (
     <section id="register" className="register-container ">
     <div className="logo-container ">
       <div className="logo ">
         <div className="logo-image ">
-        <Image src={Logo} alt="logo" width="76px" height="85px" />
-          {/* <img src={Logo} alt="logo" width="76px" height="85px" /> */}
+        {/* <Image src={Logo} alt="logo" width="76px" height="85px" /> */}
+          <img src={section?.logo.url} alt="logo" width="76px" height="85px" />
         </div>
       </div>
       <div className="address-container ">
         <div className="country ">
-          <span className="country-text ">MESSAGELANDE HANNOVER</span>
+          <span className="country-text ">{section?.country_text}</span>
         </div>
         <div className="city ">
-          <span className="city-text ">GERMANY</span>
+          <span className="city-text ">{section?.city_text}</span>
         </div>
         <div className="e_address ">
-          <span className="e_address-text ">www.ITMA.com</span>
+          <span className="e_address-text ">{section?.register_blog_url}</span>
         </div>
       </div>
     </div>
     <div className="register-container-date register-container-text ">
-      <span className="register-container-text ">16 - 22 September 2027</span>
+      <span className="register-container-text ">{section?.register_deadline_date}</span>
     </div>
    
     <div className="register-now-container ">
       <div className="register-now  register-now-text ">
-        Register Now
+      {section?.register_now_button_text}
       </div>
     </div>
     <div className="date-container ">
       <div className="date ">
-        <span className="date-text ">16 - 22 September 2027</span>
+        <span className="date-text ">{section.date_container_text}</span>
       </div>
       <div className="calendar-container ">
         <div className="icons--calendar ">
@@ -48,7 +61,7 @@ export default function Register() {
           </div>
         </div>
         <div className="add-event-container ">
-          <span className="add-event-text ">Add event to Calendar</span>
+          <span className="add-event-text ">{section.add_event_calendar_text}</span>
         </div>
       </div>
     </div>
