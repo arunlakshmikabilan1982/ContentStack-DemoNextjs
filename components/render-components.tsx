@@ -2,24 +2,21 @@ import { RenderProps } from "../typescript/component";
 import AboutItma from "./about-itma";
 import Banner from "./banner";
 import Brands from "./brands";
-import ITMAConnect from "./itma-connect";
 import ItmaBlogNews from "./itma-blog-news";
-import Register from "./register";
+import ITMAConnect from "./itma-connect";
 import JoinItma from "./join-itma";
+import Register from "./register";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
-  console.log("pageComponents:",pageComponents)
+  console.log("pageComponents:", pageComponents);
   return (
     <div
       data-pageref={entryUid}
       data-contenttype={contentTypeUid}
       data-locale={locale}
     >
-      
-      {
-      pageComponents?.map((component, key: number) => {
-        
+      {pageComponents?.map((component, key: number) => {
         if (component.banner) {
           return <Banner section={component.banner} key={`component-${key}`} />;
         }
@@ -27,7 +24,6 @@ export default function RenderComponents(props: RenderProps) {
           return <Register key={`component-${key}`} />;
         }
 
-        
         if (component.about_itma) {
           return <AboutItma key={`component-${key}`} />;
         }
@@ -35,31 +31,28 @@ export default function RenderComponents(props: RenderProps) {
         if (component.itma_blogs_and_news) {
           return (
             <ItmaBlogNews
-            key={`component-${key}`}
-          />)
+              section={component.itma_blogs_and_news}
+              key={`component-${key}`}
+            />
+          );
         }
 
         if (component.itma_connect) {
           return (
-            <ITMAConnect section={component.itma_connect} key={`component-${key}`} />
+            <ITMAConnect
+              section={component.itma_connect}
+              key={`component-${key}`}
+            />
           );
-        } 
+        }
 
         if (component["brands"]) {
-          return (
-            <Brands
-            key={`component-${key}`}
-          />
-          );
-        } 
+          return <Brands key={`component-${key}`} />;
+        }
 
         if (component.join_itma) {
-          return (
-            <JoinItma
-            key={`component-${key}`}
-          />
-          );
-        } 
+          return <JoinItma key={`component-${key}`} />;
+        }
       })}
     </div>
   );

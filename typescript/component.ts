@@ -88,7 +88,7 @@ type Register = {};
 
 type ItmaBlogNews = {};
 
-export type ITMAConnect = {  
+export type ITMAConnect = {
   title: string;
   heading: string;
   description: string;
@@ -104,7 +104,7 @@ type AboutITMA = {};
 export type Component = {
   banner: BannerProps;
   register: Register;
-  itma_blogs_and_news: ItmaBlogNews;
+  itma_blogs_and_news: ItmaBlogNewsProps;
   itma_connect: ITMAConnect;
   about_itma: AboutITMA;
   brands: Brands;
@@ -402,4 +402,20 @@ export type BannerProps = {
   banner_text_right: string;
   banner_image_left: Image;
   banner_image_right: Image;
+};
+
+export type ItmaBlog = {
+  blog_image: Image;
+  blog_tag: string;
+  blog_title: string;
+  blog_description: string;
+  blog_author_image: Image;
+  blog_author_name: string;
+  blog_published_date: string;
+};
+
+export type ItmaBlogNewsProps = {
+  blogs_news_sub_title: string;
+  blogs_news_main_title: string;
+  blogs: [ItmaBlog];
 };
