@@ -3322,12 +3322,7 @@ section {
 }
 .connect-image-container{
   width: 65.82%;
-  height: 52.8%;
-  top: 40.71%;
-  left: 17.09%;
-  opacity: 1;
-  z-index: 1;
-  transform: rotate(0deg);
+  padding: 0px 80px;
 }
 .connect-image{
   width: 100%;
