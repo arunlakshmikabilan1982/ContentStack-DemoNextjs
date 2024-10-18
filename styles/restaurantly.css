@@ -3386,3 +3386,107 @@ section {
       color: #19c0f2;
   }
 }
+/*--------------------------------------------------------------
+# Brands Component
+--------------------------------------------------------------*/
+#brands {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#brands:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.brand-container-a  {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.brand-container-b  {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.brand-container-c  {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  padding: 0px 80px;
+  margin-top: 30px;
+}
+
+.brand-image-parent {
+  width: 100%;
+  height: 75px;
+  overflow: hidden;
+}
+
+.brand-image {
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-11-103981 {
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
+}
+.image-12-103984 {
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
+}
+.owned-by-1031054,
+.cematex-associa-1031041 {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.organised-by-1031055 {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.owned-by-1031054-0,
+.organised-by-1031055-0,
+.cematex-associa-1031041-0 {
+  font-size: calc(20 * var(--ratio));
+
+  line-height: calc(24 * var(--ratio));
+
+  font-family: Poppins;
+  font-weight: 700;
+
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #5e2b7cff;
+}
