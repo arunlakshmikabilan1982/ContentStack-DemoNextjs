@@ -24,7 +24,7 @@ export default function RenderComponents(props: RenderProps) {
           return <Banner section={component.banner} key={`component-${key}`} />;
         }
         if (component.register) {
-          return <Register key={`component-${key}`} />;
+          return <Register section={component.register} key={`component-${key}`} />;
         }
 
         
