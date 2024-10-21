@@ -107,7 +107,12 @@ export type ITMAConnect = {
 
 type Brands = {};
 
-type JoinItma = {};
+type JoinItma = {
+    join_itma_title: string;
+    join_itma_description: string;
+    email_address_placeholder_text: string;
+    join_mailing_button_text: string;
+};
 
 type AboutITMA = {};
 
