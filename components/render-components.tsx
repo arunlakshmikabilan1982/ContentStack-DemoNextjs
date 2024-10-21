@@ -55,7 +55,7 @@ export default function RenderComponents(props: RenderProps) {
 
         if (component.join_itma) {
           return (
-            <JoinItma
+            <JoinItma section={component.join_itma}
             key={`component-${key}`}
           />
           );
