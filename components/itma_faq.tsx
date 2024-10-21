@@ -1,4 +1,7 @@
 import { useState } from "react";
+import BlogIcon from "../assets/svg/blog-icon.svg";
+import AccordionArrow from "../assets/svg/AccordionArrow.svg";
+import Image from "next/image";
 
 type Itma_Faq_Questions = {
   question: string;
@@ -21,6 +24,7 @@ export default function ItmaFAQ({ section }: { section: ItmaFAQprops }) {
   return (
     <section className="Itma-faq">
       <div className="faq-titles-container">
+        <Image src={BlogIcon} alt="icon" />
         <div className="faq-sub-title">{section.faq_sub_title}</div>
         <div className="faq-main-title">{section.faq_main_title}</div>
       </div>
@@ -36,9 +40,10 @@ export default function ItmaFAQ({ section }: { section: ItmaFAQprops }) {
               className={`accordion-icon ${openIndex === index ? "open" : ""}`}
             >
               {/* Down arrow icon */}
-              <svg width="24" height="24" viewBox="0 0 24 24">
+              {/* <svg width="24" height="24" viewBox="0 0 24 24">
                 <path d="M12 15.4l-5.4-5.4h10.8z" />
-              </svg>
+              </svg> */}
+              <Image src={AccordionArrow} alt="icon" />
             </div>
           </div>
           {openIndex === index && (
@@ -46,9 +51,10 @@ export default function ItmaFAQ({ section }: { section: ItmaFAQprops }) {
               <div className="answer">
                 <p>{ques.answer}</p>
               </div>
-              <div className="separator" /> {/* Separator only here */}
             </>
           )}
+          <div className="separator" /> {/* Separator only here */}
+
         </div>
       ))}
     </section>
