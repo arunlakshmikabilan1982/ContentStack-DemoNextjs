@@ -1,26 +1,39 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Logo from '../assets/svg/logo.svg';
+import { Image } from "../typescript/action";
 
-export default function Brands() {
+type BrandProps = {
+  owned_by_text: string;
+  owned_by_image:Image;
+  organized_by_text: string;
+  organized_by_image: Image;
+  associations_text: string;
+  associations_image: Image;
+
+};
+
+
+export default function Brands({section} : {section : BrandProps}) {
   return (
     <div id="brands">
       <div className="brand-container-a ">
         <div className="owned-by-1031054 ">
-          <span className="owned-by-1031054-0 ">Owned by</span>
+          <span className="owned-by-1031054-0 ">{section?.owned_by_text}
+          </span>
           <div className="image-11-103981 ">
             <img
-              src="https://s3-alpha-sig.figma.com/img/96f8/ee14/b1ba1dbec1fcc6ede05c660d1a884b6f?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cheCdTzvLIbnS33nQy0AlD-0pvZoTdRWqXAAWTpeR7wVXTopXb8bLKdeEkq9754Uli0sibUXrGd6HrOWQH7WIwhmi9Ji29KrMhqzOpyFaFYRSquKcM3TZqLnJMb2zbLF7pN4TjAxh0LZ~uZ1ei~vKlMTprW0YyJS9ZRHHabOTNJh9HcuZgugd5AuVwH5DMNeb2539EZSmVLqu4lA0PqedIx18GkOUiU~VZ7Qu4BfWsbBushlEqGrn3eYiokgY6Ns4FKfHgK~~tK5mVVc7WwrnGitBQXBevOVWWU6BspnRM25psk~0lUUVeY4LkS8cGK6SZPlYF7-EaIHdW6470onuA__"
+              src={section?.owned_by_image.url}
               className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-103981"
               alt="103981-ALT"
             />
           </div>
         </div>
         <div className="organised-by-1031055 ">
-          <span className="organised-by-1031055-0 ">Organised by</span>
+          <span className="organised-by-1031055-0 ">{section?.organized_by_text}</span>
           <div className="image-12-103984 ">
             <img
-              src="https://s3-alpha-sig.figma.com/img/4dc0/8004/f9f018c53f95d2f68a1cc8669c9a7c29?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cwiBGDDRgfITI1JwKOuZBE4rYNCEFyLG8RazsutENUY7wiNEARiYlVUGirCpRMweCo1B-5JmuHH~OZRD1qm6ibXdIxeGDVcqCGyz7iiYtZ786UDGHwKgfomNIN3rnNxrqI2EIBEzipuf1YTCOEzujppiqWmbZ0GdDBG2NTdefwEcW-wr~87z7zpCvthvA9e7V2U2KJc6aGhwhesH-9DFCahP91eN5ZQcb2fxUSZFEa6lqTeK4mb0ITCgBfoBiEW~tQogAyA~aQ8Gf2QfI2Z49yrUC~3Mr-lSgxtNnqvl-faxFOPx9b35stT7rU8TXnwQxyv8S8B0eE7Ox11eUfeB6w__"
+              src={section?.organized_by_image.url}
               className=" image-div bg-no-repeat fill-parent bg-cover nodeBg-103984"
               alt="103984-ALT"
             />
@@ -34,19 +47,21 @@ export default function Brands() {
       
       <div className="brand-container-b ">
         <div className="cematex-associa-1031041 ">
-          <span className="cematex-associa-1031041-0 ">CEMATEX Associations</span>
+          <span className="cematex-associa-1031041-0 ">
+              {section?.associations_text}
+            </span>
         </div>
       </div>
 
       <div className="brand-container-c">
         <div className="brand-image-parent">
           <img
-            src="https://s3-alpha-sig.figma.com/img/c9ff/8797/281ce69d4ef6f8a836010ee172054f7d?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FUxaJkMHTIPYtpiqCvV5uMdPaVZaX3EGf4z1sY7cmhSO5Zjzpx4lwAkZfRDrrNuURmmFe~hQZhcf1tYcNfEWbDRkAQPCkh~LpMpBHDRpqi1jbqneu2hylcF1PNNtES1~3Sar-fUlR58Az0IEFrrMe5ti7SUO9wc56oC7h7AKI4lgr65zUMzZhEBYYLi9PhUfGqtN2CuuiZ7~TatCHR2S8WKNOEL7E2xftOQUMj3dp5Vkj7yhJYKR3NhO3enY2mMV2~v~GZVcrwvmPZFNBcKnZ2h7nbSDpIfZBOdFlyTF7z1OtBPcVfPsLxQOAG3dLYxwzvwBMHKQ3oHXOjP9KnWI4A__"
+            src={section?.associations_image.url}
             className="brand-image  image-div bg-no-repeat fill-parent bg-cover nodeBg-103987"
             alt="103987-ALT"
           />
         </div>
-        <div className="brand-image-parent">
+        {/* <div className="brand-image-parent">
           <img
             src="https://s3-alpha-sig.figma.com/img/dfe9/f261/ca373a5d55f4418e201b4213cc96bb25?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H-LW65A4rDPApeeeTK9uDluD5umkgP0Ss-Z757wFHuXnW7WfKh135JHYb12pg9EETn0H5YUkkg1TgzHdLvlpnUk52X8-oWAxh33b7fkq9~BYIiWem86AZV4xym7vycAlbDHmtBSvnBw9cHkbtcGSCBekQgnDimvH0NJccywjhIwNlfe3XUGNy8kNJOS2U9IDXsK1RFMrvtoIzV-rGdqs1DlvoEZkyJukzKnF6Pya42wjvkXzu8xaezIyPon6SR7qIVHjyaP0BCMch8rfbF0n~zXIlJcMjud2XI-Zpprs5fH3y6ZVy0X8G~ObzNW0TjidkYPXjNHFOMeGRWhk4MQk5g__"
             className="brand-image  image-div bg-no-repeat fill-parent bg-cover nodeBg-103990"
@@ -101,7 +116,7 @@ export default function Brands() {
             className="brand-image brand-image  image-div bg-no-repeat bg-crop nodeBg-1031014"
             alt="1031014-ALT"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

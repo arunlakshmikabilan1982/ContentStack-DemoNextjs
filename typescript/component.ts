@@ -105,7 +105,14 @@ export type ITMAConnect = {
   image: Image;
 };
 
-type Brands = {};
+type Brands = {
+  owned_by_text: string;
+  owned_by_image:Image;
+  organized_by_text: string;
+  organized_by_image: Image;
+  associations_text: string;
+  associations_image: Image;
+};
 
 type JoinItma = {
     join_itma_title: string;
