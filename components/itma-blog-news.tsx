@@ -1,14 +1,8 @@
-import React from "react";
-import Image, { StaticImageData } from "next/image";
-import Logo from "../assets/svg/logo.svg";
-import BlogIcon from "../assets/svg/blog-icon.svg";
-import BlogImage1 from "../assets/images/blog/blog1.png";
-import BlogImage2 from "../assets/images/blog/blog2.png";
-import BlogImage3 from "../assets/images/blog/blog3.png";
-import BlogImage4 from "../assets/images/blog/blog4.png";
+import Image from "next/image";
+import ArrowIcon from "../assets/images/arrow.png";
 import CalenderIcon from "../assets/images/blog/calender.png";
 import ProfileIcon from "../assets/images/blog/profileicon.png";
-import ArrowIcon from "../assets/images/arrow.png";
+import BlogIcon from "../assets/svg/blog-icon.svg";
 import { Image as img } from "../typescript/action";
 
 type ItmaBlog = {
@@ -132,14 +126,11 @@ export default function ItmaBlogNews({
       </div>
 
       <div className="frame-3502-872697">
-        <div className="explore-all-blo-872698">
-          <a
-            href="https://itma.com/blogs"
-            className="explore-all-blo-872698-0 "
-          >
-            Explore all Blogs
-          </a>
-          <Image src={ArrowIcon} alt="icon" width="16px" height="16px" />
+        <div className="itma-blogs-explore explore-all-blo-872698">
+          <span className="itma-blogs-explore-text">
+            <a href="https://itma.com/blogs">Explore all Blogs</a>
+            <Image src={ArrowIcon} alt="icon" width="16px" height="16px" />
+          </span>
         </div>
       </div>
     </div>
