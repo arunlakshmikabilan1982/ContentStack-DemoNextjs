@@ -2,10 +2,11 @@ import { RenderProps } from "../typescript/component";
 import AboutItma from "./about-itma";
 import Banner from "./banner";
 import Brands from "./brands";
-import ITMAConnect from "./itma-connect";
+import ItmaFAQ from "./itma_faq";
 import ItmaBlogNews from "./itma-blog-news";
-import Register from "./register";
+import ITMAConnect from "./itma-connect";
 import JoinItma from "./join-itma";
+import Register from "./register";
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props;
@@ -54,11 +55,14 @@ export default function RenderComponents(props: RenderProps) {
 
         if (component.join_itma) {
           return (
-            <JoinItma section={component.join_itma}
-            key={`component-${key}`}
-          />
+            <JoinItma section={component.join_itma} key={`component-${key}`} />
           );
-        } 
+        }
+        if (component.itma_faq) {
+          return (
+            <ItmaFAQ section={component.itma_faq} key={`component-${key}`} />
+          );
+        }
       })}
     </div>
   );

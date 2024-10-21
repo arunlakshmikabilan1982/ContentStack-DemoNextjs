@@ -124,6 +124,7 @@ export type Component = {
   about_itma: AboutITMA;
   brands: Brands;
   join_itma: JoinItma;
+  itma_faq: ItmaFAQprops;
 
   hero_banner: Banner;
   section?: SectionProps;
@@ -433,4 +434,15 @@ export type ItmaBlogNewsProps = {
   blogs_news_sub_title: string;
   blogs_news_main_title: string;
   blogs: [ItmaBlog];
+};
+
+export type Itma_Faq_Questions = {
+  question: string;
+  answer: string;
+};
+
+export type ItmaFAQprops = {
+  faq_sub_title: string;
+  faq_main_title: string;
+  questions: [Itma_Faq_Questions];
 };
