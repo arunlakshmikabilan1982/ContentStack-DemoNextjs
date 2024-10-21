@@ -3637,3 +3637,89 @@ section {
   white-space: pre-wrap;
   color: #353641ff;
 }
+
+/*--------------------------------------------------------------
+# FAQ ITMA Component
+--------------------------------------------------------------*/
+.Itma-faq {
+  width: 100%;
+  max-width: 1200px; /* Set a max-width for larger screens */
+  margin: 0 auto; /* Center the FAQ section */
+  padding: 20px; /* Add some padding */
+  opacity: 1;
+  z-index: 16;
+}
+
+.faq-titles-container {
+  width: 100%;
+  text-align: center; /* Center text */
+  margin-bottom: 20px; /* Space between titles and questions */
+}
+
+.faq-sub-title {
+  font-size: calc(20 * var(--ratio));
+  line-height: calc(24 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 700;
+  color: #5e2b7cff;
+}
+
+.faq-main-title {
+  font-size: calc(24 * var(--ratio));
+  line-height: calc(28 * var(--ratio));
+  font-family: Montserrat;
+  font-weight: 600;
+  color: #353641ff;
+}
+
+.frame-3473-872732 {
+  width: 100%;
+  margin-bottom: 15px; /* Space between questions */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Clip content */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.frame-3479-872733 {
+  padding: 15px; /* Padding for content */
+  display: flex; /* Use flex to align items */
+  justify-content: space-between; /* Space between question text and icon */
+  align-items: center; /* Center items vertically */
+}
+
+.what-is-itma-872734 {
+  font-size: calc(18 * var(--ratio));
+  line-height: calc(22 * var(--ratio));
+  font-family: Poppins;
+  font-weight: 400;
+  color: #353641ff;
+  flex-grow: 1; /* Allow question text to take up available space */
+}
+
+.accordion-icon {
+  width: 24px; /* Icon size */
+  height: 24px;
+  transition: transform 0.3s; /* Smooth icon rotation */
+  fill: #353641ff; /* Change color to match text */
+}
+
+.accordion-icon.open {
+  transform: rotate(180deg); /* Rotate icon when open */
+}
+
+.separator {
+  height: 1px; /* Line height */
+  background-color: #d3d3d3; /* Gray color */
+  margin: 10px 0; /* Space above and below */
+}
+
+.answer {
+  padding: 15px; /* Padding for the answer section */
+  color: #353641ff; /* Text color for answers */
+}
+
+.answer p {
+  margin: 0; /* Remove default margin */
+  font-size: calc(16 * var(--ratio)); /* Answer text size */
+  line-height: calc(20 * var(--ratio)); /* Answer text line height */
+}
