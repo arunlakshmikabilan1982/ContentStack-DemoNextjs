@@ -49,7 +49,8 @@ export default function RenderComponents(props: RenderProps) {
         }
 
         if (component["brands"]) {
-          return <Brands key={`component-${key}`} />;
+          return <Brands section={component.brands}
+           key={`component-${key}`} />;
         }
 
         if (component.join_itma) {
