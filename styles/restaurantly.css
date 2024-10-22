@@ -2067,6 +2067,8 @@ section {
   transform: rotate(0deg);
   text-align: left;
   line-height: 0px;
+  cursor: pointer;
+  z-index: 4;
 }
 .about-itma-text,
 .exibitors-text,
@@ -2429,6 +2431,7 @@ section {
   display: flex;
   flex-direction: row;
   align-content: center;
+  cursor: pointer;
 }
 .icons--calendar {
   width: 12.63%;
@@ -2654,12 +2657,16 @@ section {
   width: 41.34%;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+  z-index: 4;
 }
 
 .read-more-about {
   height: 100%;
   text-align: left;
   line-height: 0px;
+  cursor: pointer;
+  z-index: 4;
 }
 .footer-arrow {
   width: 8.38%;
@@ -3122,6 +3129,8 @@ section {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  cursor: pointer;
+  z-index: 4;
 }
 
 .read-more-771486-0,
