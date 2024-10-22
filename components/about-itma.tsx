@@ -72,12 +72,11 @@ const Blog = (props: AboutItmaItem) => {
 export default function AboutItma({ section }: { section: AboutItmaProps }) {
 
   return (
-    <div id="about-itma" className="blog-parent ">
-      
+    <div id="about-itma" className="blog-parent ">     
       <div className="blog-list">
         <div className="blog-list-main">
-          {section.items?.map((e) => (
-            <Blog key={e.title} data={e} />
+          {section.items?.map((e, index) => (
+            <Blog key={index} {...e}/>
           ))}
         </div>
       </div>
