@@ -5,12 +5,18 @@ import parse from 'html-react-parser';
 import DottedLine from '../assets/images/dottedLine.png';
 import { Image as imge } from "../typescript/action";
 
+export type Links = {
+  label?: string;
+  title: string;
+  href: string;
+};
+
 type AboutItmaItem = {
   title: string;
   sub_heading: string;
   description: string;
   image: imge;
-  more_link: string;
+  more_link: Links;
 };
 
 type AboutItmaProps = {
@@ -37,7 +43,7 @@ const Blog = (props: AboutItmaItem) => {
         {props?.more_link && (
           <div className="blog-footer ">
             <div className="read-more-about ">
-              <span className="read-more-about-text ">{props?.more_link}</span>
+              <a href={props?.more_link.href} className="read-more-about-text ">{props?.more_link.title}</a>
             </div>
             <div className="footer-arrow  ">
               <div className="arrow-image  pos-init fill-parent image-div bg-contain bg-no-repeat"></div>
