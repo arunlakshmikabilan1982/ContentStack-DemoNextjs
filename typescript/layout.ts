@@ -34,9 +34,15 @@ type Share = {
 
 type Social = {
   social_share: [Share];
+  social_share_title : string;
 };
 
 type Navigation = {
+  link: [Links];
+};
+
+type Other_Navigation = {
+  heading: string;
   link: [Links];
 };
 
@@ -125,24 +131,13 @@ export type StandardPageProps = {
 export type FooterProps = {
   logo: Image;
   title: string;
-  city: String;
-  country: String;
-  contact_info: [String];
-  phone: String;
-  email: String;
   social: Social;
-  navigation: Navigation;
-  usefullink_title: String;
-  usefullinks: Navigation;
-  ourservice_title: String;
-  our_services: Navigation;
-  newsletter_title: String;
-  newsletter_description: String;
-  subscribe_string: String;
+  other_navigation: Navigation;
   copyright: string;
-  locale: string;
-  navigation_menu: [List];
-  notification_bar: Announcement;
+  exhibitors_visitors: Other_Navigation;
+  media_resources: Other_Navigation;
+  about_us: Other_Navigation;
+  support: Other_Navigation;
   uid: string;
   $: AdditionalParam;
 };

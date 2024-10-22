@@ -121,14 +121,12 @@ type JoinItma = {
     join_mailing_button_text: string;
 };
 
-type AboutITMA = {};
-
 export type Component = {
   banner: BannerProps;
   register: Register;
   itma_blogs_and_news: ItmaBlogNewsProps;
   itma_connect: ITMAConnect;
-  about_itma: AboutITMA;
+  about_itma: AboutItmaProps;
   brands: Brands;
   join_itma: JoinItma;
   itma_faq: ItmaFAQprops;
@@ -441,6 +439,18 @@ export type ItmaBlogNewsProps = {
   blogs_news_sub_title: string;
   blogs_news_main_title: string;
   blogs: [ItmaBlog];
+};
+
+type AboutItmaItem = {
+  title: string;
+  sub_heading: string;
+  description: string;
+  image: Image;
+  more_link: string;
+};
+
+type AboutItmaProps= {
+  items: [AboutItmaItem];
 };
 
 export type Itma_Faq_Questions = {
