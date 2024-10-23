@@ -29,7 +29,7 @@ export default function AboutItma({ section }: { section: AboutItmaProps }) {
       <div className="blog-list">
         <div className="blog-list-main">
           {section.items?.map((e, index) => (
-            <div className="blog-container">
+            <div className="blog-container" key={index}>
               <div className="blog-content ">
                 <div className="blog-icon ">
                   <Image src={BlogIcon} alt="icon"/>
