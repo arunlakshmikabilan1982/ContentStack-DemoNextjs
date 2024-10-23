@@ -441,15 +441,21 @@ export type ItmaBlogNewsProps = {
   blogs: [ItmaBlog];
 };
 
-type AboutItmaItem = {
+export type Links = {
+  label?: string;
+  title: string;
+  href: string;
+};
+
+export type AboutItmaItem = {
   title: string;
   sub_heading: string;
   description: string;
   image: Image;
-  more_link: string;
+  more_link: Links;
 };
 
-type AboutItmaProps= {
+export type AboutItmaProps= {
   items: [AboutItmaItem];
 };
 
