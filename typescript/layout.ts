@@ -132,7 +132,7 @@ export type FooterProps = {
   logo: Image;
   title: string;
   social: Social;
-  other_navigation: Navigation;
+  navigation: Navigation;
   copyright: string;
   exhibitors_visitors: Other_Navigation;
   media_resources: Other_Navigation;

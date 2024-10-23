@@ -85,7 +85,7 @@ export default function Footer({
         </div>
         <div className="footer-b ">
           <div className="footer-b-content">
-            {footerSection?.other_navigation.link.map((linkData) => {
+            {footerSection?.navigation.link.map((linkData) => {
               return (
                 <div className="privacy-notice-872832 ">
                   <a href={linkData.href} className="privacy-notice-872832-0 ">{linkData.title}</a>

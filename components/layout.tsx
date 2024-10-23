@@ -42,20 +42,20 @@ export default function Layout({
   }
   function buildFooterNavigation(ent: Entry, ft: FooterProps) {
     let newFooter = { ...ft };
-    if (ent.length !== newFooter.navigation.link.length) {
-      ent.forEach((entry) => {
-        const fFound = newFooter?.navigation.link.find(
-          (nlink: Links) => nlink.title === entry.title
-        );
-        if (!fFound) {
-          newFooter.navigation.link?.push({
-            title: entry.title,
-            href: entry.url,
-            $: entry.$,
-          });
-        }
-      });
-    }
+    // if (ent.length !== newFooter.navigation.link.length) {
+    //   ent.forEach((entry) => {
+    //     const fFound = newFooter?.navigation.link.find(
+    //       (nlink: Links) => nlink.title === entry.title
+    //     );
+    //     if (!fFound) {
+    //       newFooter.navigation.link?.push({
+    //         title: entry.title,
+    //         href: entry.url,
+    //         $: entry.$,
+    //       });
+    //     }
+    //   });
+    // }
     return newFooter;
   }
  
@@ -76,7 +76,7 @@ export default function Layout({
         {Object.keys(jsonObj).length && <DevTools response={jsonObj} />}
         </>
       </main>
-      {footer ? <Footer footer={getLayout.footer} entries={entries} /> : ''}
+      {footer ? <Footer footerSection={getLayout.footer} /> : ''}
     </>
   );
 }
