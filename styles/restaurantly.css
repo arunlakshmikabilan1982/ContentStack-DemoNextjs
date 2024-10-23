@@ -2715,7 +2715,6 @@ section {
   height: 100%;
   position: relative;
   padding: 0;
-  margin-top: 100px;
 }
 
 #itma-news-blogs:before {
@@ -3395,7 +3394,7 @@ section {
   text-align: left;
   line-height: 0px;
 }
-.connect-learn-more-text > a {
+.connect-learn-more-text {
   font-size: calc(16 * var(--ratio));
 
   line-height: calc(20 * var(--ratio));
