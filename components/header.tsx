@@ -90,13 +90,12 @@ console.log("headerData.logo:", headerData?.logo.url)
         <section className="header_container">
           <div className="logo_container">
           {headerData ? (
-            <Link href='/home'>
+            <Link href='/itmahome'>
               <a>
                 <img
                   src={headerData.logo.url}
                   alt={headerData.title}
                   title={headerData.title}
-                  {...headerData.logo.$?.url as {}}
                 />
                 </a>
             </Link>
