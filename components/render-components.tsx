@@ -28,7 +28,12 @@ export default function RenderComponents(props: RenderProps) {
         }
 
         if (component.about_itma) {
-          return <AboutItma key={`component-${key}`} />;
+          return (
+            <AboutItma
+              section={component.about_itma}
+              key={`component-${key}`}
+            />
+          );
         }
 
         if (component.itma_blogs_and_news) {
