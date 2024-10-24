@@ -46,7 +46,7 @@ function MyApp(props: Props) {
       <Head>
         <meta
           name='application-name'
-          content='Contentstack-Nextjs-Starter-App'
+          content='ITMA 2027 Contentstack Demo'
         />
         <meta charSet='utf-8' />
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
@@ -71,7 +71,7 @@ function MyApp(props: Props) {
           rel="stylesheet"
         />
         <meta name='theme-color' content='#317EFB' />
-        <title>Contentstack-Nextjs-Starter-App</title>
+        <title>ITMA 2027 Contentstack Demo</title>
         {page?.seo && page.seo.enable_search_indexing && metaData(page.seo)}
         {/* {standardpage?.seo && page.seo.enable_search_indexing && metaData(standardpage.seo)} */}
       </Head>
